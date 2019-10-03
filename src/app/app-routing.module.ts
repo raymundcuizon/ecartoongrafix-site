@@ -12,6 +12,16 @@ const routes: Routes = [
         path: 'faq',
         loadChildren: () =>
           import('./admin/modules/faq/faq.module').then(m => m.FaqModule)
+      },
+      {
+        path: 'portfolio',
+        loadChildren: () =>
+          import('./admin/modules/portfolio/portfolio.module').then(m => m.PortfolioModule)
+      },
+      {
+        path: 'inquiry',
+        loadChildren: () =>
+          import('./admin/modules/inquiry/inquiry.module').then(m => m.InquiryModule)
       }
     ]
   },
