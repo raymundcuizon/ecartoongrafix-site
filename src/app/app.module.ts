@@ -1,7 +1,8 @@
 
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialsModule } from './materials.module';
 
 import { AppComponent } from './app.component';
 
@@ -21,8 +22,11 @@ import { LoginComponent } from './admin/login/login.component';
 
 import { AppConfigModule } from './app-config.module';
 
-import { JwtInterceptor, ErrorInterceptor } from './core/interceptor';
+import { JwtInterceptor, HttpErrorInterceptor, ErrorHandling } from './core/interceptor';
 import { AuthenticationService} from './core/services';
+
+
+
 
 @NgModule({
   declarations: [
@@ -43,12 +47,15 @@ import { AuthenticationService} from './core/services';
     FormsModule,
     ReactiveFormsModule,
     AppConfigModule,
-    HttpClientModule
+    HttpClientModule,
+    MaterialsModule
   ],
   providers: [
     AuthenticationService,
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
-    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: HttpErrorInterceptor, multi: true },
+    { provide: ErrorHandler, useClass: ErrorHandling },
+
   ],
   bootstrap: [AppComponent]
 })

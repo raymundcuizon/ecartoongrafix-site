@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { CommonModule } from '@angular/common';
 import { PortfolioComponent } from './portfolio.component';
+import { ArtworkComponent } from './artwork/artwork.component';
 
 export const routes: Routes = [
   {
@@ -10,7 +11,14 @@ export const routes: Routes = [
     redirectTo: '',
     pathMatch: 'full',
     component: PortfolioComponent
+  },
+  {
+    path: 'artwork',
+    // redirectTo: '',
+    // pathMatch: 'full',
+    component: ArtworkComponent
   }
+
 ];
 
 @NgModule({

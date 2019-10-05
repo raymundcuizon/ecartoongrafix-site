@@ -1,1 +1,19 @@
-<p>admin-header works!</p>
+<div class="main-container">
+
+    <!-- toolbar -->
+    <mat-toolbar color="primary">
+      <mat-toolbar-row>
+        <button mat-icon-button type="button" (click)="drawerToggle()">
+          <mat-icon style="font-size: 32px; transform: translateX(-4px); border:none;">menu</mat-icon>
+        </button>
+        <span style="margin-left: 6px;"><strong>ecartoongrafix</strong></span>
+        <div style="flex: 1 1 auto;"></div>
+        <!-- <div style="margin-left: 15px;">{{ username }}</div> -->
+        <button (click)="userService.signout()" [routerLink]="['/user/signin']" style="outline: none; margin-right: 5px;" mat-icon-button>
+          <mat-icon>power_settings_new</mat-icon>
+        </button>
+      </mat-toolbar-row>
+    </mat-toolbar>
+  
+  </div>
+  

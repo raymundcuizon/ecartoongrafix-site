@@ -1,0 +1,22 @@
+
+
+<button type="button" color="primary" class="add-files-btn"
+    (click)="addFiles()">
+    Add Files
+  </button>
+  <input type="file" #file style="display: none" (change)="onFilesAdded()" multiple />
+
+  <br>
+
+  <div *ngFor="let file of strUrl; let i = index" style="display: flex; margin: 20px 10px 0 10px;">
+    <img [ngStyle]="{'background-image': 'url(' + file + ')'}" mat-line>
+    <button *ngIf="!isView" (click)="removeaddesImg(i)" style="cursor: pointer;">clear</button>
+    <textarea type="text" [(ngModel)]="description[i]" placeholder="Leave a comment"></textarea>
+  </div>
+
+  <br>
+
+
+  <button type="submit" (click)="onSubmit()" >
+    Submit
+</button>
