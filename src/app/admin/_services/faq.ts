@@ -18,7 +18,7 @@ export class FaqService {
     }
 
     create(data: any) {
-        return this.http.post(`${this.config.apiUrl}/private/portfolio/artwork`, data );
+        return this.http.post(`${this.config.apiUrl}/private/faq`, data );
     }
 
     getList() {

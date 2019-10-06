@@ -6,12 +6,14 @@ import { MaterialsModule } from './materials.module';
 
 import { AppComponent } from './app.component';
 
+
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 // import { HttpModule } from '@angular/http';
 
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { ClientComponent } from './client/client.component';
 
 import { AdminComponent } from './admin/admin.component';
@@ -48,7 +50,8 @@ import { AuthenticationService} from './core/services';
     ReactiveFormsModule,
     AppConfigModule,
     HttpClientModule,
-    MaterialsModule
+    MaterialsModule,
+    NgbModule
   ],
   providers: [
     AuthenticationService,

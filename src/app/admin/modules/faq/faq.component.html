@@ -13,8 +13,78 @@
         <td>
             <button (click)="onVisibility(faq.id)"> {{ (faq.status)? 'visible' : 'invisible' }} </button>
             <button (click)="onDelete(faq.id)"> delete </button>
-            <button (click)="onUpdate(faq.id)"> edit </button>
+            <button (click)="formFlg = 'update'; onUpdate(faq)"> edit </button>
         </td>
         </tr>
     </tbody>
 </table>
+
+<button type="button" mdbBtn color="default" rounded="true" data-toggle="modal" data-target="#FaqModal"
+        (click)="faqModalShow()" mdbWavesEffect>Launch Modal
+</button>
+
+<div mdbModal #frame="mdbModal" class="modal fade left" id="FaqModal" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Faq</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="faqModalClose()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <mdb-icon fas icon="user" class="prefix grey-text"></mdb-icon>
+          <input type="text" id="form34" class="form-control" mdbInput mdbValidate [formControl]="formTitle">
+          <label for="form34">Title</label>
+          <mdb-error
+            *ngIf="formTitle.invalid && (formTitle.dirty || formTitle.touched)">Input
+            invalid
+          </mdb-error>
+          <mdb-success
+            *ngIf="formTitle.valid && (formTitle.dirty || formTitle.touched)">Input
+            valid
+          </mdb-success>
+        </div>
+
+
+        <div class="md-form mb-5">
+          <mdb-icon fas icon="tag" class="prefix grey-text"></mdb-icon>
+          <input type="text" id="form32" class="form-control" mdbInput mdbValidate
+                 [formControl]="formQuestion">
+          <label for="form32">Subject</label>
+          <mdb-error
+            *ngIf="formQuestion.invalid && (formQuestion.dirty || formQuestion.touched)">
+            Input invalid
+          </mdb-error>
+          <mdb-success
+            *ngIf="formQuestion.valid && (formQuestion.dirty || formQuestion.touched)">
+            Input valid
+          </mdb-success>
+        </div>
+
+        <div class="md-form">
+          <mdb-icon fas icon="pencil-alt" class="prefix grey-text"></mdb-icon>
+          <textarea type="text" id="form8" class="md-textarea form-control" rows="1" mdbInput mdbValidate
+                    [formControl]="formAnswer"></textarea>
+          <label for="form8">Your message</label>
+          <mdb-error
+            *ngIf="formAnswer.invalid && (formAnswer.dirty || formAnswer.touched)">
+            Input invalid
+          </mdb-error>
+          <mdb-success
+            *ngIf="formAnswer.valid && (formAnswer.dirty || formAnswer.touched)">
+            Input valid
+          </mdb-success>
+        </div>
+
+      </div>
+      <div class="modal-footer d-flex justify-content-center">
+        <button mdbBtn (click)="formFaqSubmit()" color="unique" class="waves-light" mdbWavesEffect>Send
+          <mdb-icon far icon="paper-plane" class="ml-1"></mdb-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, TemplateRef } from '@angular/core';
 import { FaqService } from '../../_services'
+import {FormControl, FormGroup, Validators} from "@angular/forms";
+
 
 @Component({
   selector: 'app-faq',
@@ -8,14 +10,86 @@ import { FaqService } from '../../_services'
 })
 export class FaqComponent implements OnInit {
 
-  constructor(private faqService: FaqService) { }
+  validatingForm: FormGroup;
+  formFlg = 'add';
 
+  @ViewChild('frame', { static: true }) frame;
+
+  constructor(private faqService: FaqService) { }
   ngOnInit() {
+
     this.faqService.getList();
+    this.createForm();
+
   }
 
-  onUpdate(id: number){
-    console.log(id)
+  createForm(){
+    this.validatingForm = new FormGroup({
+      formTitle: new FormControl('', Validators.required),
+      formQuestion: new FormControl('', Validators.required),
+      formAnswer: new FormControl('', Validators.required)
+    });
+  }
+
+  get formTitle() {
+    return this.validatingForm.get('formTitle');
+  }
+
+  get formQuestion() {
+    return this.validatingForm.get('formQuestion');
+  }
+
+  get formAnswer() {
+    return this.validatingForm.get('formAnswer');
+  }
+
+  get f() { return this.validatingForm.controls; }
+
+
+  formFaqSubmit(){
+    if (this.validatingForm.invalid) { return; }
+
+    const data = {
+      title: this.f.formTitle.value,
+      question: this.f.formQuestion.value,
+      answer: this.f.formAnswer.value
+    }
+
+    if(this.formFlg == 'add') {
+      this.faqService.create(data).subscribe(res => {
+        this.faqService.getList();
+        this.faqModalClose();
+        this.frame.hide();
+      })
+    } else {  
+      this.faqService.update(this.f.id.value, data).subscribe(res => {
+        this.faqService.getList();
+        this.faqModalClose();
+      })
+    }
+  }
+
+  faqModalClose(){
+    this.formFlg = 'add';
+    this.frame.hide();
+    this.createForm();
+  }
+
+  faqModalShow(){
+    this.frame.show();
+  }
+
+  onUpdate(data){
+
+    this.frame.show();
+
+    this.validatingForm = new FormGroup({
+      id: new FormControl(data.id),
+      formTitle: new FormControl(data.title, Validators.required),
+      formQuestion: new FormControl(data.question, Validators.required),
+      formAnswer: new FormControl(data.answer, Validators.required)
+    });
+
   }
 
   onDelete(id: number){

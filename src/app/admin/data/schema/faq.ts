@@ -1,5 +1,5 @@
 export class Faq {
-    id: number;
+    id?: number;
     title: string;
     question: string;
     answer: string;
