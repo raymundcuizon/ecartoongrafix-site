@@ -2,9 +2,7 @@ import { Injectable, Inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-
 import { APP_CONFIG, AppConfig } from '../../app-config.module';
-
 
 @Injectable({ providedIn: 'root' })
 export class PortfolioService {
@@ -14,6 +12,10 @@ export class PortfolioService {
 
     }
     
+    get() {
+
+    }
+
     public createArtwork(description, files: Set<File>) {
         const formData: FormData = new FormData();
         formData.append('portfolio_id', '6');

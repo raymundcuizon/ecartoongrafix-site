@@ -1,0 +1,20 @@
+<table mdbTable hover="true">
+    <thead>
+        <tr>
+        <th *ngFor="let head of faqService.headElements" scope="col">{{ head }} </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr mdbTableCol *ngFor="let faq of faqService.list">
+        <th scope="row">{{ faq.id}}</th>
+        <td>{{ faq.title }}</td>
+        <td>{{ faq.question }}</td>
+        <td>{{ ( faq.answer.length>50)? (faq.answer | slice:0:30)+'...':(faq.answer) }}</td>
+        <td>
+            <button (click)="onVisibility(faq.id)"> {{ (faq.status)? 'visible' : 'invisible' }} </button>
+            <button (click)="onDelete(faq.id)"> delete </button>
+            <button (click)="onUpdate(faq.id)"> edit </button>
+        </td>
+        </tr>
+    </tbody>
+</table>
