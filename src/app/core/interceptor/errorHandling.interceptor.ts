@@ -8,9 +8,9 @@ export class ErrorHandling implements ErrorHandler {
     }
   
     handleError(error) {
-       console.error('An error occurred:', error.message);
+    //    console.error('An error occurred:', error.message);
        console.error(error);
-       alert(error);
+    //    alert(error);
    }
  
 }

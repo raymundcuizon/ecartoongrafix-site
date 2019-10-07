@@ -3,14 +3,18 @@ import { CommonModule } from '@angular/common';
 import { PortfolioComponent } from './portfolio.component';
 import { PortfolioRoutingModule } from './portfolio.routing';
 import { ArtworkComponent } from './artwork/artwork.component';
-import { FormsModule } from '@angular/forms';
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+
 
 @NgModule({
   declarations: [PortfolioComponent, ArtworkComponent],
   imports: [
     CommonModule,
     PortfolioRoutingModule,
-    FormsModule
+    MDBBootstrapModule.forRoot(),
+    FormsModule,
+    ReactiveFormsModule,
   ]
 })
 export class PortfolioModule { }

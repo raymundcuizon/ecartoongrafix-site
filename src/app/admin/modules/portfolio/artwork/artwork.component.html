@@ -10,7 +10,7 @@
 
   <div *ngFor="let file of strUrl; let i = index" style="display: flex; margin: 20px 10px 0 10px;">
     <img [ngStyle]="{'background-image': 'url(' + file + ')'}" mat-line>
-    <button *ngIf="!isView" (click)="removeaddesImg(i)" style="cursor: pointer;">clear</button>
+    <button (click)="removeaddesImg(i)" style="cursor: pointer;">clear</button>
     <textarea type="text" [(ngModel)]="description[i]" placeholder="Leave a comment"></textarea>
   </div>
 

@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, TemplateRef } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FaqService } from '../../_services'
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 
