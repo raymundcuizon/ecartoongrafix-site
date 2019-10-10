@@ -22,6 +22,11 @@ const routes: Routes = [
         path: 'inquiry',
         loadChildren: () =>
           import('./admin/modules/inquiry/inquiry.module').then(m => m.InquiryModule)
+      },
+      {
+        path: 'process',
+        loadChildren: () =>
+          import('./admin/modules/process/process.module').then(m => m.ProcessModule)
       }
     ]
   },

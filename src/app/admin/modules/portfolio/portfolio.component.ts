@@ -21,7 +21,7 @@ export class PortfolioComponent implements OnInit {
   isActive: boolean = false;
   showLoadMore: boolean = true;
 
-  constructor(private portfolioService: PortfolioService) { }
+  constructor(public portfolioService: PortfolioService) { }
 
   ngOnInit() {
     this.portfolioService.getList();
