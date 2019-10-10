@@ -31,20 +31,7 @@ export class FaqComponent implements OnInit {
     });
   }
 
-  get formTitle() {
-    return this.validatingForm.get('formTitle');
-  }
-
-  get formQuestion() {
-    return this.validatingForm.get('formQuestion');
-  }
-
-  get formAnswer() {
-    return this.validatingForm.get('formAnswer');
-  }
-
   get f() { return this.validatingForm.controls; }
-
 
   formFaqSubmit(){
     if (this.validatingForm.invalid) { return; }
@@ -59,7 +46,6 @@ export class FaqComponent implements OnInit {
       this.faqService.create(data).subscribe(res => {
         this.faqService.getList();
         this.faqModalClose();
-        this.frame.hide();
       })
     } else {  
       this.faqService.update(this.f.id.value, data).subscribe(res => {

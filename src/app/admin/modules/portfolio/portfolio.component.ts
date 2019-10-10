@@ -55,6 +55,7 @@ export class PortfolioComponent implements OnInit {
   }
 
   myModalShow(){
+    this.createForm();
     this.frame.show();
   }
 
@@ -83,6 +84,16 @@ export class PortfolioComponent implements OnInit {
     this.strUrl.splice(i, 1);
   }
 
+  onUpdate(data){
+
+    this.frame.show();
+
+    this.validatingForm = new FormGroup({
+      id: new FormControl(data.id),
+      formName: new FormControl(data.name, Validators.required),
+      formDescription: new FormControl(data.description, Validators.required)
+    });
+  }
 
   formSubmit(){
     if (this.validatingForm.invalid) { return; }
@@ -92,19 +103,33 @@ export class PortfolioComponent implements OnInit {
       description: this.f.formDescription.value
     }
 
-    this.portfolioService.create(data, this.files)
-    .pipe(first())
-    .subscribe(
-      data => {
-        // this.isSubmit = false;
-        // this.dialogRef.close();
-        console.log(data);
-      },
-      error => {
-        return console.log(error)
-      }
-    );
+    if(this.formFlg === 'add'){
+      this.portfolioService.create(data, this.files)
+      .pipe(first())
+      .subscribe(
+        data => {
+          this.modalClose();
+        }
+      );
+    } else {
+      this.portfolioService.update(this.f.id.value, data)
+      .pipe(first())
+      .subscribe(data => {
+        this.modalClose();
+        }
+      );
+    }
 
+  }
+
+  modalClose(){
+    this.formFlg = 'add';
+    this.frame.hide();
+    this.portfolioService.portfolioPageSetting.page = 1;
+    this.portfolioService.portfolioPageSetting.paginate = 10;
+
+    this.portfolioService.getList();
+    this.createForm();
   }
 
 }
