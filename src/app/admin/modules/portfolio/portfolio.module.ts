@@ -4,7 +4,7 @@ import { PortfolioComponent } from './portfolio.component';
 import { PortfolioRoutingModule } from './portfolio.routing';
 import { ArtworkComponent } from './artwork/artwork.component';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
