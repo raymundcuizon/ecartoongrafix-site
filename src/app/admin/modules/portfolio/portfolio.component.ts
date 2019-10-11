@@ -11,7 +11,6 @@ import { first } from 'rxjs/operators';
 })
 export class PortfolioComponent implements OnInit {
 
-
   @ViewChild('frame', { static: true }) frame;
   @ViewChild('file', { static: false }) file;
   strUrl: any[] = [];
@@ -28,7 +27,7 @@ export class PortfolioComponent implements OnInit {
     this.createForm();
   }
 
-  loadMore(){
+  loadMore() {
 
     if(this.portfolioService.pagination.pages === this.portfolioService.pagination.next) {
       this.showLoadMore = false;
@@ -39,7 +38,7 @@ export class PortfolioComponent implements OnInit {
   }
 
   // Modal part
-  createForm(){
+  createForm() {
     this.validatingForm = new FormGroup({
       formName: new FormControl('', Validators.required),
       formDescription: new FormControl('', Validators.required)
@@ -48,7 +47,7 @@ export class PortfolioComponent implements OnInit {
 
   get f() { return this.validatingForm.controls; }
 
-  myModalClose(){
+  myModalClose() {
     this.formFlg = 'add';
     this.frame.hide();
     this.createForm();

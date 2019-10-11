@@ -1,1 +1,77 @@
-<p>process works!</p>
+<ul>
+  <li *ngFor="let data of processService.list">
+    {{ data.name }}
+  </li>
+</ul>
+
+<button type="button" mdbBtn color="default" rounded="true" data-toggle="modal" data-target="#myModal"
+        (click)="myModalShow()" mdbWavesEffect>Launch Modal
+</button>
+<div mdbModal #frame="mdbModal" class="modal fade left" id="myModal" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Portfolio</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="myModalClose()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+
+      <div class="modal-body mx-3">
+
+        <div class="md-form mb-5">
+            <mdb-icon fas icon="user" class="prefix grey-text"></mdb-icon>
+            <button type="button" color="primary" class="add-files-btn"
+                (click)="addFiles()">
+                Add Files
+            </button>
+            <input type="file" #file style="display: none" (change)="onFilesAdded()" multiple />
+
+            <br>
+
+            <div *ngFor="let file of strUrl; let i = index" style="display: flex; margin: 20px 10px 0 10px;">
+                <span>{{ file }}</span>
+                <button (click)="removeaddesImg(i)" style="cursor: pointer;">clear</button>
+            </div>
+        </div>
+
+        <div class="md-form mb-5">
+          <mdb-icon fas icon="user" class="prefix grey-text"></mdb-icon>
+          <input type="text" id="form34" class="form-control" mdbInput mdbValidate [formControl]="f.formName">
+          <label for="form34">Name</label>
+          <mdb-error
+            *ngIf="f.formName.invalid && (f.formName.dirty || f.formName.touched)">Input
+            invalid
+          </mdb-error>
+          <mdb-success
+            *ngIf="f.formName.valid && (f.formName.dirty || f.formName.touched)">Input
+            valid
+          </mdb-success>
+        </div>
+
+        <div class="md-form">
+          <mdb-icon fas icon="pencil-alt" class="prefix grey-text"></mdb-icon>
+          <textarea type="text" id="form8" class="md-textarea form-control" rows="1" mdbInput mdbValidate
+                    [formControl]="f.formDescription"></textarea>
+          <label for="form8">Your message</label>
+          <mdb-error
+            *ngIf="f.formDescription.invalid && (f.formDescription.dirty || f.formDescription.touched)">
+            Input invalid
+          </mdb-error>
+          <mdb-success
+            *ngIf="f.formDescription.valid && (f.formDescription.dirty || f.formDescription.touched)">
+            Input valid
+          </mdb-success>
+        </div>
+
+      </div>
+      <div class="modal-footer d-flex justify-content-center">
+        <button mdbBtn (click)="formSubmit()" color="unique" class="waves-light" mdbWavesEffect>Send
+          <mdb-icon far icon="paper-plane" class="ml-1"></mdb-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

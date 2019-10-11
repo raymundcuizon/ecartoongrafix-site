@@ -9,13 +9,13 @@ import { APP_CONFIG, AppConfig } from '../../app-config.module';
 
 @Injectable({ providedIn: 'root' })
 export class AuthenticationService {
-    
+
     private currentUserSubject: BehaviorSubject<User>;
     public currentUser: Observable<User>;
 
     constructor(
         private http: HttpClient, @Inject(APP_CONFIG) private config: AppConfig
-        
+
         ) {
         this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')));
         this.currentUser = this.currentUserSubject.asObservable();
