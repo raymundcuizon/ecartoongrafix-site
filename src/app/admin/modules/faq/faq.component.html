@@ -36,14 +36,14 @@
       <div class="modal-body mx-3">
         <div class="md-form mb-5">
           <mdb-icon fas icon="user" class="prefix grey-text"></mdb-icon>
-          <input type="text" id="form34" class="form-control" mdbInput mdbValidate [formControl]="formTitle">
+          <input type="text" id="form34" class="form-control" mdbInput mdbValidate [formControl]="f.formTitle">
           <label for="form34">Title</label>
           <mdb-error
-            *ngIf="formTitle.invalid && (formTitle.dirty || formTitle.touched)">Input
+            *ngIf="f.formTitle.invalid && (f.formTitle.dirty || f.formTitle.touched)">Input
             invalid
           </mdb-error>
           <mdb-success
-            *ngIf="formTitle.valid && (formTitle.dirty || formTitle.touched)">Input
+            *ngIf="f.formTitle.valid && (f.formTitle.dirty || f.formTitle.touched)">Input
             valid
           </mdb-success>
         </div>
@@ -52,14 +52,14 @@
         <div class="md-form mb-5">
           <mdb-icon fas icon="tag" class="prefix grey-text"></mdb-icon>
           <input type="text" id="form32" class="form-control" mdbInput mdbValidate
-                 [formControl]="formQuestion">
+                 [formControl]="f.formQuestion">
           <label for="form32">Subject</label>
           <mdb-error
-            *ngIf="formQuestion.invalid && (formQuestion.dirty || formQuestion.touched)">
+            *ngIf="f.formQuestion.invalid && (f.formQuestion.dirty || f.formQuestion.touched)">
             Input invalid
           </mdb-error>
           <mdb-success
-            *ngIf="formQuestion.valid && (formQuestion.dirty || formQuestion.touched)">
+            *ngIf="f.formQuestion.valid && (f.formQuestion.dirty || f.formQuestion.touched)">
             Input valid
           </mdb-success>
         </div>
@@ -67,14 +67,14 @@
         <div class="md-form">
           <mdb-icon fas icon="pencil-alt" class="prefix grey-text"></mdb-icon>
           <textarea type="text" id="form8" class="md-textarea form-control" rows="1" mdbInput mdbValidate
-                    [formControl]="formAnswer"></textarea>
+                    [formControl]="f.formAnswer"></textarea>
           <label for="form8">Your message</label>
           <mdb-error
-            *ngIf="formAnswer.invalid && (formAnswer.dirty || formAnswer.touched)">
+            *ngIf="f.formAnswer.invalid && (f.formAnswer.dirty || f.formAnswer.touched)">
             Input invalid
           </mdb-error>
           <mdb-success
-            *ngIf="formAnswer.valid && (formAnswer.dirty || formAnswer.touched)">
+            *ngIf="f.formAnswer.valid && (f.formAnswer.dirty || f.formAnswer.touched)">
             Input valid
           </mdb-success>
         </div>

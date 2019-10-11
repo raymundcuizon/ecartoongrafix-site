@@ -37,7 +37,11 @@ export class PortfolioService {
             })
     }
 
-    public create(data: any, files: Set<File>) {
+    update(id, data) {
+        return this.http.patch(`${this.config.apiUrl}/private/portfolio/${id}`, data);
+    }
+
+    create(data: any, files: Set<File>) {
         
         const formData: FormData = new FormData();
         formData.append(`name`, data.name);
@@ -51,7 +55,7 @@ export class PortfolioService {
     }
 
 
-    public createArtwork(description, files: Set<File>) {
+    createArtwork(description, files: Set<File>) {
         const formData: FormData = new FormData();
         formData.append('portfolio_id', '6');
 
