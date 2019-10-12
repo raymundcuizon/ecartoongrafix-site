@@ -15,7 +15,7 @@ export class FaqComponent implements OnInit {
 
   @ViewChild('frame', { static: true }) frame;
 
-  constructor(private faqService: FaqService) { }
+  constructor(public faqService: FaqService) { }
   ngOnInit() {
 
     this.faqService.getList();

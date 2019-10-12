@@ -1,3 +1,10 @@
 <div class="container border-bottom">
   <h1>faq works!</h1>
+
+  <ul>
+    <li *ngFor="let faq of faqService.list">
+        {{ faq.title }}
+        {{ ( faq.answer.length>50)? (faq.answer | slice:0:30)+'...':(faq.answer) }}
+    </li>
+  </ul>
 </div>

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ProcessService } from '../../_services';
+
 
 @Component({
   selector: 'app-process',
@@ -7,9 +9,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProcessComponent implements OnInit {
 
-  constructor() { }
+  constructor(public processService: ProcessService) { }
 
   ngOnInit() {
+    this.processService.getList();
   }
 
 }
