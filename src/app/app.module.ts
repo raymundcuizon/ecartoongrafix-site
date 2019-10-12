@@ -27,7 +27,8 @@ import { AppConfigModule } from './app-config.module';
 import { JwtInterceptor, HttpErrorInterceptor, ErrorHandling } from './core/interceptor';
 import { AuthenticationService} from './core/services';
 
-
+import { UserRoutingModule} from './user/user-routing.module';
+import { UserModule} from './user/user.module';
 
 
 @NgModule({
@@ -39,11 +40,10 @@ import { AuthenticationService} from './core/services';
     AdminNavComponent,
     AdminComponent,
     LoginComponent
-    
+
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     BrowserAnimationsModule,
     MDBBootstrapModule.forRoot(),
     FormsModule,
@@ -51,7 +51,10 @@ import { AuthenticationService} from './core/services';
     AppConfigModule,
     HttpClientModule,
     MaterialsModule,
-    NgbModule
+    NgbModule,
+    UserModule,
+    UserRoutingModule,
+    AppRoutingModule
   ],
   providers: [
     AuthenticationService,

@@ -1,0 +1,120 @@
+<div class="d-flex flex-column h-100">
+  <!-- Begin page content -->
+  <main class="flex-shrink-0">
+    <header>
+      <!-- Fixed navbar -->
+      <nav class="navbar navbar-expand-md fixed-top navbar-dark bg-dark main-nav add-shadow">
+          <div class="container nav-container">
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+                  <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse w-100">
+                  <ul class="nav navbar-nav w-100">
+                      <li class="nav-item active">
+                          <a class="nav-link" routerLink="/">Home</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" routerLink="/services">Services</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" routerLink="/process">Process</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" routerLink="/store">Store</a>
+                      </li>
+                  </ul>
+              </div>
+              <div class="navbar-brand order-first order-md-0 mx-0" [ngStyle]="{ 'position': 'relative' }">
+                <img class="brandingLogo" src="/assets/images/ecartoon-graphix-design.png">
+              </div>
+              <div class="collapse navbar-collapse w-100">
+                  <ul class="nav navbar-nav ml-auto">
+                      <li class="nav-item">
+                          <a class="nav-link" routerLink="/faq">Faq</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" routerLink="/about">About</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" routerLink="/contact">Contact</a>
+                      </li>
+                  </ul>
+              </div>
+          </div>
+      </nav>
+    </header>
+    <div class="container-fluid px-0">
+      <router-outlet></router-outlet>
+    </div>
+  </main>
+
+  <footer class="footer mt-auto py-3">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-md">
+          <img class="mb-2" src="/assets/images/ecartoon-graphix-design.png" alt="" width="24" height="24">
+          <small class="d-block mb-3 text-muted">© 2017-2019</small>
+        </div>
+        <div class="col-6 col-md">
+          <h5>Features</h5>
+          <ul class="list-unstyled text-small">
+            <li><a class="text-muted" href="#">Cool stuff</a></li>
+            <li><a class="text-muted" href="#">Random feature</a></li>
+            <li><a class="text-muted" href="#">Team feature</a></li>
+            <li><a class="text-muted" href="#">Stuff for developers</a></li>
+            <li><a class="text-muted" href="#">Another one</a></li>
+            <li><a class="text-muted" href="#">Last time</a></li>
+          </ul>
+        </div>
+        <div class="col-6 col-md">
+          <h5>Resources</h5>
+          <ul class="list-unstyled text-small">
+            <li><a class="text-muted" href="#">Resource</a></li>
+            <li><a class="text-muted" href="#">Resource name</a></li>
+            <li><a class="text-muted" href="#">Another resource</a></li>
+            <li><a class="text-muted" href="#">Final resource</a></li>
+          </ul>
+        </div>
+        <div class="col-6 col-md">
+          <h5>About</h5>
+          <ul class="list-unstyled text-small">
+            <li><a class="text-muted" href="#">Team</a></li>
+            <li><a class="text-muted" href="#">Locations</a></li>
+            <li><a class="text-muted" href="#">Privacy</a></li>
+            <li><a class="text-muted" href="#">Terms</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<!-- <main class="container-fluid">
+  <div class="row">
+    <h2> <a routerLink="landing-page">Manage User</a> </h2>
+    <span>{{ title }} app is running! In User UI</span>
+    	<h1>Fluid Vertical Rhythm</h1>
+    	<p>This is an example of fluid type that maintains vertical rhythm. I'll try and find the time to write it up in detail soon.</p>
+
+        <h1> <a routerLink="landing-page">Manage User</a> </h1>
+    	<p>If the lines seem to glitch out ocasionally it's not because the vertical rhythm is broken. I think it's because of the way the browser rounds. The height of the gradient background that draws the lines on the body element is only rounded once, whereas real line hight is rounded on a per element basis. This adds up by the time you get to the bottom of the page. No idea how to fix it!</p>
+
+
+    	<h2>Fluid Vertical Rhythm</h2>
+    	<p>This is an example of fluid type that maintains vertical rhythm. I'll try and find the time to write it up in detail soon.</p>
+    	<p>If the lines seem to glitch out ocasionally it's not because the vertical rhythm is broken. I think it's because of the way the browser rounds. The height of the gradient background that draws the lines on the body element is only rounded once, whereas real line hight is rounded on a per element basis. This adds up by the time you get to the bottom of the page. No idea how to fix it!</p>
+
+
+
+    	<h3>Fluid Vertical Rhythm</h3>
+    	<p>This is an example of fluid type that maintains vertical rhythm. I'll try and find the time to write it up in detail soon.</p>
+    	<p>If the lines seem to glitch out ocasionally it's not because the vertical rhythm is broken. I think it's because of the way the browser rounds. The height of the gradient background that draws the lines on the body element is only rounded once, whereas real line hight is rounded on a per element basis. This adds up by the time you get to the bottom of the page. No idea how to fix it!</p>
+
+
+
+    	<h4>Fluid Vertical Rhythm</h4>
+    	<p>This is an example of fluid type that maintains vertical rhythm. I'll try and find the time to write it up in detail soon.</p>
+    	<p>If the lines seem to glitch out ocasionally it's not because the vertical rhythm is broken. I think it's because of the way the browser rounds. The height of the gradient background that draws the lines on the body element is only rounded once, whereas real line hight is rounded on a per element basis. This adds up by the time you get to the bottom of the page. No idea how to fix it!</p>
+  </div>
+</main>
+ -->
