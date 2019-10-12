@@ -12,7 +12,7 @@ export class ServicesComponent implements OnInit {
   constructor(public servicesService: ServicesService) { }
 
   ngOnInit() {
-    this.servicesService.getList()
+    this.servicesService.getList();
   }
 
 }

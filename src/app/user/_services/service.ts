@@ -9,7 +9,8 @@ import { Service } from '../data/schema';
 @Injectable({ providedIn: 'root' })
 export class ServicesService { 
 
-    list: Service;
+    list: Service[];
+    description: string;
 
     constructor(private http: HttpClient, @Inject(APP_CONFIG) private config: AppConfig
     ) {
@@ -19,7 +20,8 @@ export class ServicesService {
     getList() {
         this.http.get(`${this.config.apiUrl}/public/service`)
             .toPromise().then(res => {
-                this.list = res as Service;
+                const d:any = res;
+                this.description = d.description;
             })
     }
 

@@ -4,10 +4,11 @@ export * from './portfolio';
 export * from './inquiry';
 export * from './process';
 
+export class Service {
+    description: string;
+}
+
 export class About {
     description: string;
 }
 
-export class Service {
-    description: string;
-}
