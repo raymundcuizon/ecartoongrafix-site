@@ -5,63 +5,17 @@
   <div class="container mt-5">
     <div class="row mb-3 text-center">
       <!-- loop item here -->
-      <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+      <div *ngFor="let data of portfolioService.portfolioDataList" class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
         <div class="card py-2 px-0 add-shadow">
           <!-- <div class="card-header">
             <h4 class="my-0 font-weight-normal">Item Name</h4>
           </div> -->
           <div class="img-hover-zoom">
-            <img src="https://placeimg.com/1080/500/animals" class="card-img-top" alt="...">
+            <img src="{{ data.img_url }}" class="card-img-top" alt="...">
           </div>
           <div class="card-body">
-            <h1 class="card-title pricing-card-title">Php <small class="text-muted">3,000</small></h1>
-            <ul class="list-unstyled mt-3 mb-4">
-              <li>Additional Details Here</li>
-              <li>Additional Details Here</li>
-              <li>Additional Details Here</li>
-              <li>Additional Details Here</li>
-            </ul>
-            <button type="button" class="btn btn-lg btn-block btn-outline-primary">Add to cart</button>
-          </div>
-        </div>
-      </div>
-
-      <!-- sample image -->
-      <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
-        <div class="card py-2 px-0 add-shadow">
-          <!-- <div class="card-header">
-            <h4 class="my-0 font-weight-normal">Item Name</h4>
-          </div> -->
-          <div class="img-hover-zoom">
-            <img src="https://placeimg.com/1080/500/animals" class="card-img-top" alt="...">
-          </div>
-          <div class="card-body">
-            <h1 class="card-title pricing-card-title">Php <small class="text-muted">3,000</small></h1>
-            <ul class="list-unstyled mt-3 mb-4">
-              <li>Additional Details Here</li>
-              <li>Additional Details Here</li>
-              <li>Additional Details Here</li>
-              <li>Additional Details Here</li>
-            </ul>
-          </div>
-          <div class="card-footer text-muted text-right">
-            <span class="read-more">
-                Read More
-            </span>
-          </div>
-        </div>
-      </div>
-      <!-- loop item here -->
-      <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
-        <div class="card py-2 px-0 add-shadow">
-          <!-- <div class="card-header">
-            <h4 class="my-0 font-weight-normal">Item Name</h4>
-          </div> -->
-          <div class="img-hover-zoom">
-            <img src="https://placeimg.com/1080/500/animals" class="card-img-top" alt="...">
-          </div>
-          <div class="card-body">
-            <h1 class="card-title pricing-card-title">Php <small class="text-muted">3,000</small></h1>
+            <h1 class="card-title pricing-card-title">{{ data.name }}<small class="text-muted">3,000</small></h1>
+            <p class="text-muted">{{ data.description }}</p>
             <ul class="list-unstyled mt-3 mb-4">
               <li>Additional Details Here</li>
               <li>Additional Details Here</li>
