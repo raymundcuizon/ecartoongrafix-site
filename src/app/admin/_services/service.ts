@@ -12,7 +12,7 @@ export class ServiceService {
 
     }
     get() {
-        return this.http.get(`${this.config.apiUrl}/public/service}`);
+        return this.http.get(`${this.config.apiUrl}/public/service`);
     }
 
     update(data) {

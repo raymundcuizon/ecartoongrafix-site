@@ -5,6 +5,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialsModule } from './../materials.module';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { UserRoutingModule } from './user-routing.module';
 import { UserComponent, LandingPageComponent, ServicesComponent, ProcessComponent, StoreComponent, FaqComponent, AboutComponent, ContactComponent, PortfolioComponent } from './pages';
@@ -13,6 +14,7 @@ import { UserComponent, LandingPageComponent, ServicesComponent, ProcessComponen
 @NgModule({
   declarations: [UserComponent, LandingPageComponent, ServicesComponent, ProcessComponent, StoreComponent, FaqComponent, AboutComponent, ContactComponent, PortfolioComponent],
   imports: [
+    NgbModule,
     CommonModule,
     UserRoutingModule,
     BrowserModule,

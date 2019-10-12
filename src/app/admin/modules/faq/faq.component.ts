@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FaqService } from '../../_services'
-import {FormControl, FormGroup, Validators} from "@angular/forms";
+import { FormControl, FormGroup, Validators } from "@angular/forms";
+import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
 
 @Component({
@@ -12,10 +13,11 @@ export class FaqComponent implements OnInit {
 
   validatingForm: FormGroup;
   formFlg = 'add';
+  public Editor = ClassicEditor;
 
   @ViewChild('frame', { static: true }) frame;
 
-  constructor(private faqService: FaqService) { }
+  constructor(public faqService: FaqService) { }
   ngOnInit() {
 
     this.faqService.getList();
