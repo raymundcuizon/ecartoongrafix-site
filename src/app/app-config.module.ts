@@ -9,7 +9,7 @@ export class AppConfig {
 }
 
 export const APP_DI_CONFIG: AppConfig = {
-  apiUrl: 'http://localhost:2017'
+  apiUrl: 'http://api.ecartoongrafix'
 };
 
 @NgModule({
