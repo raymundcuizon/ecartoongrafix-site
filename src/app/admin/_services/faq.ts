@@ -6,11 +6,11 @@ import { APP_CONFIG, AppConfig } from '../../app-config.module';
 import { Faq } from '../data/schema';
 
 @Injectable({ providedIn: 'root' })
-export class FaqService { 
+export class FaqService {
 
-    formData  : Faq;
-    list : Faq[];
-    headElements: ['ID', 'Title', 'Question', 'Answer', 'Actions']
+    formData: Faq;
+    list: Faq[];
+    headElements: ['ID', 'Title', 'Question', 'Answer', 'Actions'];
 
     constructor(private http: HttpClient, @Inject(APP_CONFIG) private config: AppConfig
     ) {
