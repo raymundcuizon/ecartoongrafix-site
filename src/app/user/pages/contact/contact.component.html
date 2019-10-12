@@ -1,3 +1,30 @@
 <div class="container border-bottom">
-  <h1>contact works!</h1>
+  <mat-horizontal-stepper linear #stepper="matHorizontalStepper">
+    <mat-step label="Location Selection" [stepControl]="formA">
+      <form [formGroup]="formA">
+        <mat-form-field>
+          <input type="text" matInput [(ngModel)]="selectedLocation" [formControl]="location" [matAutocomplete]="auto" required>
+        </mat-form-field>
+        <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayLocation">
+          <mat-option *ngFor="let l of filteredLocations | async" [value]="l">
+            {{l.name}} - {{l.description}}
+          </mat-option>
+        </mat-autocomplete>
+        <div>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step label="Location Details">
+      <div *ngIf="selectedLocation">
+        <h2>Selected Location</h2>
+        <p>Name: {{selectedLocation.name}}</p>
+        <p>Description: {{selectedLocation.description}}</p>
+      </div>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button color="warn" (click)="reset(stepper)">Reset</button>
+      </div>
+    </mat-step>
+  </mat-horizontal-stepper>
 </div>

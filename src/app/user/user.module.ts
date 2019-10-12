@@ -1,8 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialsModule } from './../materials.module';
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
 
 import { UserRoutingModule } from './user-routing.module';
-
 import { UserComponent, LandingPageComponent, ServicesComponent, ProcessComponent, StoreComponent, FaqComponent, AboutComponent, ContactComponent, PortfolioComponent } from './pages';
 
 
@@ -10,7 +14,13 @@ import { UserComponent, LandingPageComponent, ServicesComponent, ProcessComponen
   declarations: [UserComponent, LandingPageComponent, ServicesComponent, ProcessComponent, StoreComponent, FaqComponent, AboutComponent, ContactComponent, PortfolioComponent],
   imports: [
     CommonModule,
-    UserRoutingModule
+    UserRoutingModule,
+    BrowserModule,
+    BrowserAnimationsModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MDBBootstrapModule.forRoot(),
+    MaterialsModule
   ]
 })
 export class UserModule { }
