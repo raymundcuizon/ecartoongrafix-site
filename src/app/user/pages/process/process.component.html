@@ -1,3 +1,12 @@
 <div class="container border-bottom">
-  <h1>process works!</h1>
+  <!-- <h1>process works!</h1> -->
+  <ul>
+    <li *ngFor="let data of processService.list">
+      {{ data.name }}
+
+      <!-- name
+description
+img_url -->
+    </li>
+  </ul>
 </div>

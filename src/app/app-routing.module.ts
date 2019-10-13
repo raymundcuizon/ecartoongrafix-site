@@ -27,6 +27,16 @@ const routes: Routes = [
         path: 'process',
         loadChildren: () =>
           import('./admin/modules/process/process.module').then(m => m.ProcessModule)
+      },
+      {
+        path: 'about',
+        loadChildren: () =>
+          import('./admin/modules/about/about.module').then(m => m.AboutModule)
+      },
+      {
+        path: 'service',
+        loadChildren: () =>
+          import('./admin/modules/service/service.module').then(m => m.ServiceModule)
       }
     ]
   },

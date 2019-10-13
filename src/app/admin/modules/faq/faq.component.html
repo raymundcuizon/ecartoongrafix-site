@@ -66,8 +66,9 @@
 
         <div class="md-form">
           <mdb-icon fas icon="pencil-alt" class="prefix grey-text"></mdb-icon>
-          <textarea type="text" id="form8" class="md-textarea form-control" rows="1" mdbInput mdbValidate
-                    [formControl]="f.formAnswer"></textarea>
+
+          <ckeditor [editor]="Editor" [formControl]="f.formAnswer" data="<p>Hello, world!</p>"></ckeditor>
+
           <label for="form8">Your message</label>
           <mdb-error
             *ngIf="f.formAnswer.invalid && (f.formAnswer.dirty || f.formAnswer.touched)">
