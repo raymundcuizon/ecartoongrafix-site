@@ -13,7 +13,7 @@ export const routes: Routes = [
     component: PortfolioComponent
   },
   {
-    path: 'artwork',
+    path: ':id',
     // redirectTo: '',
     // pathMatch: 'full',
     component: ArtworkComponent

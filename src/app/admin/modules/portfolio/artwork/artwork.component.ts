@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { first } from 'rxjs/operators';
 import { PortfolioService } from '../../../_services';
+import { Router, ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -13,9 +14,14 @@ export class ArtworkComponent implements OnInit {
   @ViewChild('file', { static: false }) file;
   strUrl: any[] = [];
   description: any[] = [];
+  id: number;
 
   public files: Set<File> = new Set();
-  constructor(private portfolioService: PortfolioService) { }
+  constructor(private portfolioService: PortfolioService
+    , private router: Router, private route: ActivatedRoute ) { 
+    this.id = this.route.snapshot.params['id'];
+
+  }
 
   addFiles() {
     this.file.nativeElement.click();
@@ -45,7 +51,7 @@ export class ArtworkComponent implements OnInit {
 
   public onSubmit(){
 
-    this.portfolioService.createArtwork(this.description, this.files)
+    this.portfolioService.createArtwork(this.description, this.id, this.files)
       .pipe(first())
       .subscribe(
         data => {
@@ -61,9 +67,6 @@ export class ArtworkComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.portfolioService.getArtworkList(this.id);
   }
-
-
-
-
 }

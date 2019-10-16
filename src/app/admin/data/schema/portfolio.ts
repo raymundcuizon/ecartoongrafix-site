@@ -18,8 +18,6 @@ export class Pagination {
     next: number;
 }
 
-
-
 export class PortfolioPageSettingArtwork {
   page: number;
   paginate: number;
@@ -27,6 +25,8 @@ export class PortfolioPageSettingArtwork {
 
 export class PortfolioDatalistArtwork {
   id: number;
+  image_id: number;
+  title: string;
   name: string;
   description: string;
   status: boolean;

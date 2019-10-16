@@ -3,7 +3,12 @@ import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { APP_CONFIG, AppConfig } from '../../app-config.module';
-import { PortfolioDatalist, PortfolioPageSetting, Pagination } from '../data/schema';
+import { PortfolioDatalist
+    , PortfolioPageSetting
+    , Pagination
+    , PortfolioDatalistArtwork
+    , PortfolioPageSettingArtwork
+    , PaginationArtwork } from '../data/schema';
 import * as $ from 'jquery';
 
 
@@ -16,6 +21,13 @@ export class PortfolioService {
         paginate: 10
     };
     pagination: Pagination;
+
+    portfolioDataListArtwork: PortfolioDatalistArtwork[];
+    portfolioPageSettingArtwork: PortfolioPageSettingArtwork = {
+        page: 1,
+        paginate: 10
+    };
+    paginationArtwork: PaginationArtwork;
 
     constructor(private http: HttpClient, @Inject(APP_CONFIG) private config: AppConfig
     ) {
@@ -37,6 +49,21 @@ export class PortfolioService {
             })
     }
 
+    getArtworkList(id: any) {
+
+        this.http.get(`${this.config.apiUrl}/public/portfolio/artwork/${id}?${$.param(this.portfolioPageSetting)}`)
+            .toPromise().then(res => {
+                const d:any = res;
+                if(this.portfolioPageSetting.page > 1){
+                    this.portfolioDataList = this.portfolioDataList.concat(d.data_list as PortfolioDatalistArtwork[])
+                } else {
+                    this.portfolioDataListArtwork = d.data_list as PortfolioDatalistArtwork[];
+                }
+
+                this.paginationArtwork = d.pagination;
+            })
+    }
+
     update(id, data) {
         return this.http.patch(`${this.config.apiUrl}/private/portfolio/${id}`, data);
     }
@@ -55,9 +82,9 @@ export class PortfolioService {
     }
 
 
-    createArtwork(description, files: Set<File>) {
+    createArtwork(description: any, id: any,  files: Set<File>) {
         const formData: FormData = new FormData();
-        formData.append('portfolio_id', '1');
+        formData.append('portfolio_id', id);
 
         let counter = 0;
         files.forEach(file => {
