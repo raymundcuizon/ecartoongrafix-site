@@ -21,7 +21,7 @@ export class PortfolioService {
     ) {
 
     }
-    
+
     getList() {
 
         this.http.get(`${this.config.apiUrl}/public/portfolio?${$.param(this.portfolioPageSetting)}`)
@@ -42,7 +42,7 @@ export class PortfolioService {
     }
 
     create(data: any, files: Set<File>) {
-        
+
         const formData: FormData = new FormData();
         formData.append(`name`, data.name);
         formData.append(`description`, data.description);
@@ -57,7 +57,7 @@ export class PortfolioService {
 
     createArtwork(description, files: Set<File>) {
         const formData: FormData = new FormData();
-        formData.append('portfolio_id', '6');
+        formData.append('portfolio_id', '1');
 
         let counter = 0;
         files.forEach(file => {
