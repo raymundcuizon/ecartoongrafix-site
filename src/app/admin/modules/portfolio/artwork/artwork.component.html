@@ -1,6 +1,6 @@
 
 
-<button type="button" color="primary" class="add-files-btn"
+<!-- <button type="button" color="primary" class="add-files-btn"
     (click)="addFiles()">
     Add Files
   </button>
@@ -19,12 +19,17 @@
 
   <button type="submit" (click)="onSubmit()" >
     Submit
-</button>
+</button> -->
 
 
 <div id="columns">
 	<figure *ngFor="let data of portfolioService.portfolioDataListArtwork">
 		<img src="{{ data.img_url }}">
-		<figcaption>{{ data.description }}</figcaption>
+		<figcaption>
+      <a href="">visibility</a> | 
+      <a href="">delete</a> | 
+      <a href="">update</a> 
+      <!-- {{ ( data.description.length>50)? (data.description | slice:0:70)+'...':(data.description) }} -->
+    </figcaption>
 	</figure>
 </div>
