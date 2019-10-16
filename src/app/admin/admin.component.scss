@@ -1,0 +1,108 @@
+.main-container {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+.main-sidenav-container {
+    /* When the sidenav is not fixed, stretch the sidenav container to fill the available space. This
+       causes `<mat-sidenav-content>` to act as our scrolling element for desktop layouts. */
+    flex: 1;
+  }
+  .main-is-mobile .main-sidenav-container {
+    /* When the sidenav is fixed, don't constrain the height of the sidenav container. This allows the
+       `<body>` to be our scrolling element for mobile layouts. */
+    flex: 1 0 auto;}
+
+  .sideNavShow{
+    width: 230px;
+    transition: 0.4s all ease;
+    z-index: 2;
+    box-shadow: 5px 0 5px -5px #333;
+  }
+
+  .sideNavHide{
+    width: 62px;
+    transition: 0.4s all ease;
+    z-index: 2;
+    box-shadow: 5px 0 5px -5px #333;
+    overflow-x: hidden;
+  }
+
+  .router_grow{
+    margin: 0;
+    transition: 0.4s all ease;
+  }
+  //fix on resizing the browser
+  ::ng-deep .mat-drawer-content {
+    margin-left: 62px !important;
+  }
+  .router_shrink{
+    margin-left: 168px;
+    transition: 0.4s all ease;
+  }
+
+  .router_dim{
+    opacity: 0.5;
+    transition: 0.4s all ease;
+  }
+
+
+  .btn_drawer {
+    color: #929292;
+    display: flex;
+    vertical-align: middle;
+    line-height: 30px;
+    cursor: pointer;
+    transition: 0.2s all ease;
+    position: relative;
+    max-height: 45px;
+  }
+  .btn_drawer:hover {
+    color: #444;
+    transition: 0.2s all ease;
+  }
+
+  .drawer_selected{
+    background-color: none;
+    min-width: 8px;
+    height: 45px;
+  }
+
+  .drawer_text{
+  vertical-align: middle;
+  line-height: 45px;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  transition: 0.4s all ease;
+  font-size: 15px;
+}
+
+.drawer_img{
+    width: 25px;
+    height: 25px;
+    margin: 10px 15px;
+    color: rgb(19, 19, 19);
+  }
+
+.sub_nav{
+  color: #444;
+  margin-left: 48px;
+}
+
+
+.active-list-item {
+  background: #f6221717 !important; /* Note: You could also use a custom theme */
+}
+
+.active-list-item .drawer_selected{
+  background-color: #F62217 !important;
+}
+
+.myLogo{
+  -webkit-filter: drop-shadow(5px 5px 5px #000000);
+  filter: drop-shadow(5px 5px 5px #000000);
+}
