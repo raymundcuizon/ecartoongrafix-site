@@ -34,19 +34,10 @@ export class PortfolioService {
 
     }
 
-    getList() {
+    getList(pageSetting: any) {
 
-        this.http.get(`${this.config.apiUrl}/public/portfolio?${$.param(this.portfolioPageSetting)}`)
-            .toPromise().then(res => {
-                const d:any = res;
-                if(this.portfolioPageSetting.page > 1){
-                    this.portfolioDataList = this.portfolioDataList.concat(d.data_list as PortfolioDatalist[])
-                } else {
-                    this.portfolioDataList = d.data_list as PortfolioDatalist[];
-                }
-
-                this.pagination = d.pagination;
-            })
+        return this.http.get(`${this.config.apiUrl}/public/portfolio?${$.param(pageSetting)}`)
+           
     }
 
     getArtworkList(id: any) {

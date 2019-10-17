@@ -1,7 +1,7 @@
 <div class="main-container">
   <!-- <app-admin-header></app-admin-header> -->
   <!-- toolbar -->
-  <mat-toolbar [ngStyle]="{'background': '#F62217', 'padding-bottom': '5px', 'z-index': '2'}" class="text-white add-shadow">
+  <mat-toolbar [ngStyle]="{'background': '#F62217', 'padding-bottom': '5px'}" class="text-white add-shadow">
     <mat-toolbar-row class="add-shadow">
       <button mat-icon-button type="button" (click)="drawerToggle()">
         <mat-icon style="font-size: 32px; transform: translateX(-4px); border:none;">menu</mat-icon>
@@ -21,7 +21,7 @@
   <mat-sidenav-container #drawer class="main-sidenav-container"
     style="background-color: white">
     <mat-sidenav [ngClass]="drawerShow ? 'sideNavShow' : 'sideNavHide'" mode="side" opened
-      (mouseenter)="drawerShow = true" (mouseleave)="drawerShow = drawerOpen" [ngStyle]="{ 'z-index': '3'}">
+      (mouseenter)="drawerShow = true" (mouseleave)="drawerShow = drawerOpen">
       <div class="drawer">
         <div class="btn_drawer" [routerLink]="['faq']" (click)="btnId=false; showSettingMenu = false"  routerLinkActive="active-list-item">
           <div class="drawer_selected"></div>
@@ -75,7 +75,7 @@
     <!-- <mat-sidenav-content> -->
     <div [ngClass]="{'router_grow':!drawerOpen, 'router_shrink':drawerOpen,
         'router_dim':drawerShow && !drawerOpen}" style="background-color: #ffffff; height: 100%;">
-      <router-outlet></router-outlet>
+        <router-outlet></router-outlet>
     </div>
   </mat-sidenav-container>
   <app-admin-footer></app-admin-footer>
