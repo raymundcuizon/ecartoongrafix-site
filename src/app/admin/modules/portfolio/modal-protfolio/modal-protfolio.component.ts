@@ -12,7 +12,6 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 })
 export class ModalProtfolioComponent implements OnInit {
 
-  @ViewChild('frame', { static: true }) frame;
   @ViewChild('file', { static: false }) file;
   strUrl: any[] = [];
   public files: Set<File> = new Set();

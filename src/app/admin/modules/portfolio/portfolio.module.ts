@@ -9,10 +9,12 @@ import { ModalProtfolioComponent } from './modal-protfolio/modal-protfolio.compo
 import { MatDialogModule } from '@angular/material';
 // import { MaterialsModule  } from '../../../materials.module';
 import { NgBootstrapFormValidationModule } from 'ng-bootstrap-form-validation';
+import { ModalArtworkComponent } from './modal-artwork/modal-artwork.component';
+import { ModalArtworkUpdateComponent } from './modal-artwork-update/modal-artwork-update.component';
 
 
 @NgModule({
-  declarations: [PortfolioComponent, ArtworkComponent, ModalProtfolioComponent],
+  declarations: [PortfolioComponent, ArtworkComponent, ModalProtfolioComponent, ModalArtworkComponent, ModalArtworkUpdateComponent],
   imports: [
     CommonModule,
     PortfolioRoutingModule,
@@ -23,7 +25,9 @@ import { NgBootstrapFormValidationModule } from 'ng-bootstrap-form-validation';
     NgBootstrapFormValidationModule.forRoot()
   ],
   entryComponents: [
-    ModalProtfolioComponent
+    ModalProtfolioComponent,
+    ModalArtworkComponent,
+    ModalArtworkUpdateComponent
   ]
 })
 export class PortfolioModule { }

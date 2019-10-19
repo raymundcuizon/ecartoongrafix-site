@@ -1,6 +1,10 @@
+<mat-dialog-actions align="end">
+    <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Close</button>
+</mat-dialog-actions>
+        
+<h2 mat-dialog-title>Install Angular</h2>
 
-
-<!-- <button type="button" color="primary" class="add-files-btn"
+<button type="button" color="primary" class="add-files-btn"
     (click)="addFiles()">
     Add Files
   </button>
@@ -19,18 +23,4 @@
 
   <button type="submit" (click)="onSubmit()" >
     Submit
-</button> -->
-<button mat-button (click)="openDialog()">Open dialog</button>
-
-
-<div id="columns">
-	<figure *ngFor="let data of portfolioService.portfolioDataListArtwork">
-		<img src="{{ data.img_url }}">
-		<figcaption>
-      <a (click)="visibility(data)">visibility</a> | 
-      <a (click)="delete(data)">delete</a> | 
-      <a (click)="update(data)">update</a> 
-      <!-- {{ ( data.description.length>50)? (data.description | slice:0:70)+'...':(data.description) }} -->
-    </figcaption>
-	</figure>
-</div>
+</button>

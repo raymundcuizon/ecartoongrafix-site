@@ -16,7 +16,9 @@
           <mdb-card-text>
               {{ ( data.description.length>50)? (data.description | slice:0:30)+'...':(data.description) }}
           </mdb-card-text>
-          <a (click)="formFlg = 'update'; onUpdate(data)"  mdbBtn color="primary" mdbWavesEffect> edit </a>
+          <a (click)="formFlg = 'update'; onUpdate(data)" > edit </a> | 
+          <a (click)="formFlg = 'update'; onUpdate(data)" > visibility </a>
+          <!-- <a (click)="formFlg = 'update'; onUpdate(data)" > edit </a> -->
           <!-- <a href="#" mdbBtn color="primary" mdbWavesEffect>Button</a> -->
         </mdb-card-body>
       </mdb-card>

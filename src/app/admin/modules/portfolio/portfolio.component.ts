@@ -25,7 +25,7 @@ export class PortfolioComponent implements OnInit {
 
   pageSetting = {
       page : 1,
-      paginate : 1
+      paginate : 12
   }
 
   pagination = {
@@ -54,12 +54,17 @@ export class PortfolioComponent implements OnInit {
           }
 
           this.pagination = d.pagination;
+          
+          if(this.pagination.pages === this.pageSetting.page) {
+            this.showLoadMore = false;
+          }
+
       })
   }
 
   loadMore() {
 
-    if(this.pagination.pages === this.pagination.next) {
+    if(this.pagination.pages === this.pageSetting.page) {
       this.showLoadMore = false;
     }
 
@@ -101,7 +106,7 @@ export class PortfolioComponent implements OnInit {
 
   reset(){
     this.pageSetting.page = 1;
-    this.pageSetting.paginate = 1
+    this.pageSetting.paginate = 12;
     this.getList();
   }
 }
