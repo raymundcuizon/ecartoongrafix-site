@@ -2,6 +2,9 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { ProcessService } from '../../_services';
 import { FormControl, Validators, FormGroup } from '@angular/forms';
 import { first } from 'rxjs/operators';
+import { MatDialog } from '@angular/material/dialog';
+import { PortfolioDatalist } from '../../data/schema';
+import { ProcessModalComponent } from './process-modal/process-modal.component';
 
 @Component({
   selector: 'app-process',
@@ -19,81 +22,41 @@ export class ProcessComponent implements OnInit {
   isActive: boolean = false;
   showLoadMore: boolean = true;
 
-  constructor(public processService: ProcessService) { }
+  constructor(public processService: ProcessService, public dialog: MatDialog) { }
 
   ngOnInit() {
-    this.processService.getList();
-    this.createForm();
+    this.processService.getList(); 
 
   }
+  openDialog() {
 
+    const dialogRef = this.dialog.open(ProcessModalComponent, {
+        width: '50%', height: '500px',
+        data: {
+          action: 'add',
+          details: null 
+        },
+        disableClose: false
+      });
 
-    // Modal part
-  createForm() {
-    this.validatingForm = new FormGroup({
-      formName: new FormControl('', Validators.required),
-      formDescription: new FormControl('', Validators.required)
+    dialogRef.afterClosed().subscribe(result => {
+      // this.reset();
     });
+  
   }
 
-  get f() { return this.validatingForm.controls; }
+  onUpdate(data){
+    const dialogRef = this.dialog.open(ProcessModalComponent, {
+        width: '50%', height: '500px',
+        data: {
+          action: 'update',
+          details: data 
+        },
+        disableClose: false
+      });
 
-  myModalClose() {
-    this.formFlg = 'add';
-    this.frame.hide();
-    this.createForm();
-  }
-
-  myModalShow() {
-    this.frame.show();
-  }
-
-  addFiles() {
-    this.file.nativeElement.click();
-  }
-
-  onFilesAdded() {
-    const files: { [key: string]: File } = this.file.nativeElement.files;
-    for (let key in files) {
-      if (!isNaN(parseInt(key))) {
-        this.files.add(files[key]);
-        let reader = new FileReader();
-        reader.onload = (event: any) => {
-          console.log(event.target.result);
-          this.strUrl.push(event.target.result);
-        };
-        reader.readAsDataURL(files[key]);
-      }
-    }
-  }
-
-  removeaddesImg(i) {
-    console.log(`Removed Image: ${i}`);
-    this.files.delete(i);
-    this.strUrl.splice(i, 1);
-  }
-
-
-  formSubmit(){
-    if (this.validatingForm.invalid) { return; }
-
-    const data = {
-      name: this.f.formName.value,
-      description: this.f.formDescription.value
-    }
-
-    this.processService.create(data, this.files)
-    .pipe(first())
-    .subscribe(
-      data => {
-        // this.isSubmit = false;
-        // this.dialogRef.close();
-        console.log(data);
-      },
-      error => {
-        return console.log(error)
-      }
-    );
-
+    dialogRef.afterClosed().subscribe(result => {
+      // this.reset();
+    }); 
   }
 }

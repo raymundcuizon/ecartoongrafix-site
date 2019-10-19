@@ -7,7 +7,6 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ModalProtfolioComponent } from './modal-protfolio/modal-protfolio.component';
 import { MatDialogModule } from '@angular/material';
-// import { MaterialsModule  } from '../../../materials.module';
 import { NgBootstrapFormValidationModule } from 'ng-bootstrap-form-validation';
 import { ModalArtworkComponent } from './modal-artwork/modal-artwork.component';
 import { ModalArtworkUpdateComponent } from './modal-artwork-update/modal-artwork-update.component';

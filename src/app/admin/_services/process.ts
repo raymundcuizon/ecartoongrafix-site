@@ -42,4 +42,8 @@ export class ProcessService {
 
     }
 
+    update(id, data) {
+        return this.http.patch(`${this.config.apiUrl}/private/process/${id}`, data);
+    }
+
 }
