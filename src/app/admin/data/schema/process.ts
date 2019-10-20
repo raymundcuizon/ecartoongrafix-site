@@ -4,4 +4,6 @@ export class Process {
   name: string;
   description: string;
   img_url?: string;
+  status: boolean;
+
 }

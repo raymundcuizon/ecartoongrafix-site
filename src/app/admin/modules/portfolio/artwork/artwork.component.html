@@ -5,7 +5,8 @@
 	<figure *ngFor="let data of portfolioService.portfolioDataListArtwork">
 		<img src="{{ data.img_url }}">
 		<figcaption>
-      <a (click)="visibility(data)">visibility</a> | 
+      <!-- <a (click)="visibility(data)">visibility</a> |  -->
+      <a (click)="onVisibility(data.id)"> {{ (data.status)? 'visible' : 'invisible' }} </a> | 
       <a (click)="delete(data)">delete</a> | 
       <a (click)="update(data)">update</a> 
       <!-- {{ ( data.description.length>50)? (data.description | slice:0:70)+'...':(data.description) }} -->

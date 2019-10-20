@@ -66,6 +66,11 @@ export class ArtworkComponent implements OnInit {
     console.log(data);
   }
 
+  onVisibility(id: number) {
+    this.portfolioService.visibilityArtwork(id).subscribe(res => {
+      this.portfolioService.getArtworkList(this.id);
+    })
+  }
 
   ngOnInit() {
     this.portfolioService.getArtworkList(this.id);

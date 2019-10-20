@@ -104,6 +104,12 @@ export class PortfolioComponent implements OnInit {
     }); 
   }
 
+  onVisibility(id: number) {
+    this.portfolioService.visibility(id).subscribe(res => {
+      this.getList();
+    })
+  }
+
   reset(){
     this.pageSetting.page = 1;
     this.pageSetting.paginate = 12;

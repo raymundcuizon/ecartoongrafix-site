@@ -57,4 +57,10 @@ export class ProcessComponent implements OnInit {
 
     }); 
   }
+
+  onVisibility(id: number) {
+    this.processService.visibility(id).subscribe(res => {
+      this.processService.getList(); 
+    })
+  }
 }
