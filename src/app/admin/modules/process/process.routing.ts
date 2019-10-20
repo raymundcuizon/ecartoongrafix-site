@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { CommonModule } from '@angular/common';
+import { ProcessStepComponent } from './process-step/process-step.component';
 
 export const routes: Routes = [
   {
@@ -10,6 +11,11 @@ export const routes: Routes = [
     redirectTo: '',
     pathMatch: 'full',
     component: ProcessComponent
+  },
+  {
+    path: ':id',
+    component: ProcessStepComponent
+  
   }
 ];
 

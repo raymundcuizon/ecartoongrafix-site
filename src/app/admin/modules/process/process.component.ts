@@ -13,12 +13,6 @@ import { ProcessModalComponent } from './process-modal/process-modal.component';
 })
 export class ProcessComponent implements OnInit {
 
-  @ViewChild('frame', { static: true }) frame;
-  @ViewChild('file', { static: false }) file;
-  strUrl: any[] = [];
-  public files: Set<File> = new Set();
-  validatingForm: FormGroup;
-  formFlg = 'add';
   isActive: boolean = false;
   showLoadMore: boolean = true;
 
@@ -41,6 +35,8 @@ export class ProcessComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       // this.reset();
+      this.processService.getList(); 
+
     });
   
   }
@@ -57,6 +53,8 @@ export class ProcessComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       // this.reset();
+      this.processService.getList(); 
+
     }); 
   }
 }

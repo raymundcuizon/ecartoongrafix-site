@@ -96,4 +96,12 @@ export class PortfolioService {
 
         return this.http.post(`${this.config.apiUrl}/private/portfolio/artwork`, formData );
     }
+
+    visibility(id) {
+        return this.http.patch(`${this.config.apiUrl}/private/portfolio/visibility/${id}`, {});
+    }
+
+    visibilityArtwork(id) {
+        return this.http.patch(`${this.config.apiUrl}/private/portfolio/visibility/artwork/${id}`, {});
+    }
 }
