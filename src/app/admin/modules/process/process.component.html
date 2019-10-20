@@ -1,4 +1,18 @@
-<button mat-button (click)="openDialog()">Open dialog</button>
+<div id="columns">
+    <figure>
+      <a (click)="openDialog()" >Add more</a>
+    </figure>
+    <figure *ngFor="let data of processService.list" >
+      <img src="{{ data.img_url }}"  [routerLink]="['/admin/process/' + data.id]" >
+      <h4>{{ data.name }}</h4>
+      <figcaption>
+        <a (click)="onVisibility(data.id)"> {{ (data.status)? 'visible' : 'invisible' }} </a> | 
+        <a (click)="formFlg = 'update'; onUpdate(data)" >update</a> </figcaption>
+    </figure>
+
+  </div>
+
+<!-- <button mat-button (click)="openDialog()">Open dialog</button>
 
 <div class="container">
   <div class="row">
@@ -24,4 +38,4 @@
       </mdb-card>
     </div>
   </div>
-</div>
+</div> -->

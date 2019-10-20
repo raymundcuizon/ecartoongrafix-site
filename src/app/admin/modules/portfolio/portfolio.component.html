@@ -1,4 +1,23 @@
-<div class="container">
+<div id="columns">
+    <figure>
+      <a (click)="openDialog()" >Add more</a>
+    </figure>
+    <figure *ngFor="let data of portfolioDataList" >
+      <img src="{{ data.img_url }}"  [routerLink]="['/admin/portfolio/' + data.id]" >
+      <h4>{{ data.name }}</h4>
+
+      <figcaption>
+        <a (click)="onVisibility(data.id)"> {{ (data.status)? 'visible' : 'invisible' }} </a> | 
+        <a (click)="formFlg = 'update'; onUpdate(data)" >update</a> </figcaption>
+    </figure>
+
+    <figure *ngIf="showLoadMore">
+      <a (click)="loadMore()" >Show more</a>
+    </figure>
+  </div>
+
+
+<!-- <div class="container">
   <div class="row">
     <div class="col-3" *ngFor="let data of portfolioDataList">
       <mdb-card>
@@ -18,17 +37,13 @@
           </mdb-card-text>
           <a (click)="formFlg = 'update'; onUpdate(data)" > edit </a> | 
           <a (click)="onVisibility(data.id)"> {{ (data.status)? 'visible' : 'invisible' }} </a>
-
-          <!-- <a (click)="onUpdate(data)" > visibility </a> -->
-          <!-- <a (click)="formFlg = 'update'; onUpdate(data)" > edit </a> -->
-          <!-- <a href="#" mdbBtn color="primary" mdbWavesEffect>Button</a> -->
         </mdb-card-body>
       </mdb-card>
     </div>
   </div>
-</div>
+</div> -->
 
-<button mat-button (click)="openDialog()">Open dialog</button>
+<!-- <button mat-button (click)="openDialog()">Open dialog</button>
 
-<button *ngIf="showLoadMore" type="submit" (click)="loadMore()">loadmore</button>
+<button *ngIf="showLoadMore" type="submit" (click)="loadMore()">loadmore</button> -->
 

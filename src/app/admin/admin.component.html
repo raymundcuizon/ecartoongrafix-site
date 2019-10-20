@@ -11,7 +11,7 @@
         <strong>ecartoongrafix</strong>
       </span>
       <div style="flex: 1 1 auto;"></div>
-      <button (click)="userService.signoutAdmin()" [routerLink]="['/user/signin']" style="outline: none; margin-right: 5px;" mat-icon-button>
+      <button (click)="authenticationService.logout()" [routerLink]="['/cms-login']" style="outline: none; margin-right: 5px;" mat-icon-button>
         <mat-icon>power_settings_new</mat-icon>
       </button>
     </mat-toolbar-row>
