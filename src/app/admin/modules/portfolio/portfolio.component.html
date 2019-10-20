@@ -16,7 +16,7 @@
     <div class="col-3" *ngFor="let data of portfolioService.portfolioDataList">
       <mdb-card>
         <div class="view rgba-white-slight waves-light" mdbWavesEffect>
-        
+
           <mdb-card-img src="{{ data.img_url }}" alt="Card image cap"></mdb-card-img>
           <a>
             <div class="mask"></div>
@@ -68,7 +68,7 @@
             <br>
 
             <div *ngFor="let file of strUrl; let i = index" style="display: flex; margin: 20px 10px 0 10px;">
-              <button (click)="removeaddesImg(i)" style="cursor: pointer;">clear</button>  
+              <button (click)="removeaddesImg(i)" style="cursor: pointer;">clear</button>
               <span>{{ file }}</span>
             </div>
         </div>

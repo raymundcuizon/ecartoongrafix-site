@@ -3,7 +3,30 @@
   <main class="flex-shrink-0">
     <header>
       <!-- Fixed navbar -->
-      <nav class="navbar navbar-expand-md fixed-top navbar-dark bg-dark main-nav add-shadow">
+      <nav id="navbar" class="navbar navbar-light fixed-top navbar-expand-lg text-white" [ngClass]="{'navScollClass': windowScrolled}">
+        <!-- <a class="navbar-brand" href="#"> -->
+        <span class="nav-brand">
+          <img src="/assets/images/ecartoon-graphix-design.png" class="d-inline-block align-top" alt="">
+          <span class="logoName">eCartoongrafix</span>
+        </span>
+        <!-- </a> -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav ml-auto mynav-link">
+            <!-- <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a> -->
+            <a class="nav-item nav-link" [ngClass]="{'text-white': windowScrolled_rev}" routerLink="/">Home</a>
+            <a class="nav-item nav-link" [ngClass]="{'text-white': windowScrolled_rev}" routerLink="/portfolio">Portfolio</a>
+            <a class="nav-item nav-link" [ngClass]="{'text-white': windowScrolled_rev}" routerLink="/services">Services</a>
+            <a class="nav-item nav-link" [ngClass]="{'text-white': windowScrolled_rev}" routerLink="/process">Process</a>
+            <a class="nav-item nav-link" [ngClass]="{'text-white': windowScrolled_rev}" routerLink="/faq">Faq</a>
+            <a class="nav-item nav-link" [ngClass]="{'text-white': windowScrolled_rev}" routerLink="/about">About</a>
+            <a class="nav-item nav-link" [ngClass]="{'text-white': windowScrolled_rev}" routerLink="/contact">Contact</a>
+          </div>
+        </div>
+      </nav>
+      <!-- <nav class="navbar navbar-expand-md fixed-top navbar-dark bg-dark main-nav add-shadow">
           <div class="container nav-container">
               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse">
                   <span class="navbar-toggler-icon"></span>
@@ -44,7 +67,7 @@
                   </ul>
               </div>
           </div>
-      </nav>
+      </nav> -->
     </header>
     <div class="container-fluid px-0">
       <router-outlet></router-outlet>

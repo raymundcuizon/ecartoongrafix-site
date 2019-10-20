@@ -1,0 +1,23 @@
+/* [1] The container */
+.img-hover-zoom {
+  overflow: hidden; /* [1.2] Hide the overflowing of child elements */
+}
+
+/* [2] Transition property for smooth transformation of images */
+.card img {
+  // min-height: 180px;
+  transition: transform .5s ease;
+}
+
+/* [3] Finally, transforming the image when container gets hovered */
+.card:hover img {
+  transform: scale(1.2);
+}
+.read-more {
+    color: #222;
+    border-bottom: 2px solid #5bd1d7;
+    font-weight: 600;
+}
+.read-more:hover {
+    color: #5bd1d7;
+}

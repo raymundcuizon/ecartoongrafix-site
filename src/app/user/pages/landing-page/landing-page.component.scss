@@ -2,29 +2,39 @@
 -------------------------------------------------- */
 
 /* Carousel base class */
-.carousel {
-  margin-bottom: 4rem;
-}
-/* Since positioning the image, we need to help out the caption */
-.carousel-caption {
-  bottom: 3rem;
-  z-index: 10;
+.img-overlay{
+  background: linear-gradient(50deg, rgba(0, 0, 0, 0.20), rgba(0, 0, 0, 0.50));
+  background-size: 400% 400%;
+
+  -webkit-animation: AnimationName 40s ease infinite;
+  -moz-animation: AnimationName 40s ease infinite;
+  -o-animation: AnimationName 40s ease infinite;
+  animation: AnimationName 40s ease infinite;
+  position: absolute;
 }
 
-/* Declare heights because of positioning of img element */
-.carousel-wrapper{
 
+@-webkit-keyframes AnimationName {
+    0%{background-position:0% 94%}
+    50%{background-position:100% 7%}
+    100%{background-position:0% 94%}
 }
-.carousel-item {
-  max-height: 500px;
+@-moz-keyframes AnimationName {
+    0%{background-position:0% 94%}
+    50%{background-position:100% 7%}
+    100%{background-position:0% 94%}
 }
-.carousel-item > img {
-  // position: absolute;
-  // top: 0;
-  // left: 0;
-  // min-width: 100%;
-  max-height: 500px;
+@-o-keyframes AnimationName {
+    0%{background-position:0% 94%}
+    50%{background-position:100% 7%}
+    100%{background-position:0% 94%}
 }
+@keyframes AnimationName {
+    0%{background-position:0% 94%}
+    50%{background-position:100% 7%}
+    100%{background-position:0% 94%}
+}
+
 
 /* MARKETING CONTENT
 -------------------------------------------------- */
@@ -81,26 +91,26 @@
 }
 
 
-/* [1] The container */
-.img-hover-zoom {
-  overflow: hidden; /* [1.2] Hide the overflowing of child elements */
+// landing page image about, services & portfolio
+.landing-img-right{
+  transition: all .4s ease-in-out;
+  position: relative;
+  right: -100%;
+}
+.landing-img-left{
+  transition: all .4s ease-in-out;
+  position: relative;
+  left: -100%;
+}
+//if scrolled this class will be added
+.landing-img-right-scrolled{
+  transition: all .4s ease-in-out;
+  position: relative;
+  right: 0% !important;
 }
 
-/* [2] Transition property for smooth transformation of images */
-.card img {
-  // min-height: 180px;
-  transition: transform .5s ease;
-}
-
-/* [3] Finally, transforming the image when container gets hovered */
-.card:hover img {
-  transform: scale(1.2);
-}
-.read-more {
-    color: #222;
-    border-bottom: 2px solid #5bd1d7;
-    font-weight: 600;
-}
-.read-more:hover {
-    color: #5bd1d7;
+.landing-img-left-scrolled{
+  transition: all .4s ease-in-out;
+  position: relative;
+  left: 0% !important;
 }
