@@ -2,7 +2,9 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { PortfolioService } from '../../_services';
 import { FormControl, Validators, FormGroup } from '@angular/forms';
 import { first } from 'rxjs/operators';
-
+import { MatDialog } from '@angular/material/dialog';
+import { ModalProtfolioComponent } from './modal-protfolio/modal-protfolio.component';
+import { PortfolioDatalist } from '../../data/schema';
 
 @Component({
   selector: 'app-portfolio',
@@ -20,115 +22,97 @@ export class PortfolioComponent implements OnInit {
   isActive: boolean = false;
   showLoadMore: boolean = true;
 
-  constructor(public portfolioService: PortfolioService) { }
+
+  pageSetting = {
+      page : 1,
+      paginate : 12
+  }
+
+  pagination = {
+      pages: 0,
+      total: 0,
+      before: 0,
+      next: 0,
+  }
+
+  portfolioDataList: PortfolioDatalist[];
+
+  constructor(public portfolioService: PortfolioService, public dialog: MatDialog) { }
 
   ngOnInit() {
-    this.portfolioService.getList();
-    this.createForm();
+    this.getList();
+  }
+
+  getList(){
+    this.portfolioService.getList(this.pageSetting)
+     .toPromise().then(res => {
+          const d:any = res;
+          if(this.pageSetting.page > 1){
+              this.portfolioDataList = this.portfolioDataList.concat(d.data_list as PortfolioDatalist[])
+          } else {
+              this.portfolioDataList = d.data_list as PortfolioDatalist[];
+          }
+
+          this.pagination = d.pagination;
+          
+          if(this.pagination.pages === this.pageSetting.page) {
+            this.showLoadMore = false;
+          }
+
+      })
   }
 
   loadMore() {
 
-    if(this.portfolioService.pagination.pages === this.portfolioService.pagination.next) {
+    if(this.pagination.pages === this.pageSetting.page) {
       this.showLoadMore = false;
     }
 
-    this.portfolioService.portfolioPageSetting.page = this.portfolioService.pagination.next;
-    this.portfolioService.getList();
+    this.pageSetting.page = this.pagination.next;
+    this.getList();
   }
 
-  // Modal part
-  createForm() {
-    this.validatingForm = new FormGroup({
-      formName: new FormControl('', Validators.required),
-      formDescription: new FormControl('', Validators.required)
+  openDialog() {
+
+    const dialogRef = this.dialog.open(ModalProtfolioComponent, {
+        width: '50%', height: '500px',
+        data: {
+          action: 'add',
+          details: null 
+        },
+        disableClose: true
+      });
+
+    dialogRef.afterClosed().subscribe(result => {
+      this.reset();
     });
-  }
-
-  get f() { return this.validatingForm.controls; }
-
-  myModalClose() {
-    this.formFlg = 'add';
-    this.frame.hide();
-    this.createForm();
-  }
-
-  myModalShow(){
-    this.createForm();
-    this.frame.show();
-  }
-
-  addFiles() {
-    this.file.nativeElement.click();
-  }
-
-  onFilesAdded() {
-    const files: { [key: string]: File } = this.file.nativeElement.files;
-    for (let key in files) {
-      if (!isNaN(parseInt(key))) {
-        this.files.add(files[key]);
-        let reader = new FileReader();
-        reader.onload = (event: any) => {
-          console.log(event.target.result);
-          this.strUrl.push(event.target.result);
-        };
-        reader.readAsDataURL(files[key]);
-      }
-    }
-  }
-
-  removeaddesImg(i) {
-    console.log(`Removed Image: ${i}`);
-    this.files.delete(i);
-    this.strUrl.splice(i, 1);
+  
   }
 
   onUpdate(data){
+    const dialogRef = this.dialog.open(ModalProtfolioComponent, {
+        width: '50%', height: '500px',
+        data: {
+          action: 'update',
+          details: data 
+        },
+        disableClose: true
+      });
 
-    this.frame.show();
-
-    this.validatingForm = new FormGroup({
-      id: new FormControl(data.id),
-      formName: new FormControl(data.name, Validators.required),
-      formDescription: new FormControl(data.description, Validators.required)
-    });
+    dialogRef.afterClosed().subscribe(result => {
+      this.reset();
+    }); 
   }
 
-  formSubmit(){
-    if (this.validatingForm.invalid) { return; }
-
-    const data = {
-      name: this.f.formName.value,
-      description: this.f.formDescription.value
-    }
-
-    if(this.formFlg === 'add'){
-      this.portfolioService.create(data, this.files)
-      .pipe(first())
-      .subscribe(
-        data => {
-          this.modalClose();
-        }
-      );
-    } else {
-      this.portfolioService.update(this.f.id.value, data)
-      .pipe(first())
-      .subscribe(data => {
-        this.modalClose();
-        }
-      );
-    }
-
+  onVisibility(id: number) {
+    this.portfolioService.visibility(id).subscribe(res => {
+      this.getList();
+    })
   }
 
-  modalClose(){
-    this.formFlg = 'add';
-    this.frame.hide();
-    this.portfolioService.portfolioPageSetting.page = 1;
-    this.portfolioService.portfolioPageSetting.paginate = 10;
-
-    this.portfolioService.getList();
-    this.createForm();
+  reset(){
+    this.pageSetting.page = 1;
+    this.pageSetting.paginate = 12;
+    this.getList();
   }
-
 }

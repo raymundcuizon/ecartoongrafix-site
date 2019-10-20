@@ -1,4 +1,5 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { AuthenticationService } from '../core/services';
 
 @Component({
   selector: 'app-admin',
@@ -12,7 +13,10 @@ export class AdminComponent implements OnInit {
 
   btnId:boolean = false;
 
-  constructor() { }
+  constructor(
+    public authenticationService: AuthenticationService
+  ) {
+   }
 
   ngOnInit() {
   }
