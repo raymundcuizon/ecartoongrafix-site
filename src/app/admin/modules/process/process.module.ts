@@ -8,6 +8,7 @@ import { ProcessModalComponent } from './process-modal/process-modal.component';
 import { ProcessStepComponent } from './process-step/process-step.component';
 import { NgBootstrapFormValidationModule } from 'ng-bootstrap-form-validation';
 import { MatDialogModule } from '@angular/material';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 
 @NgModule({
@@ -19,6 +20,7 @@ import { MatDialogModule } from '@angular/material';
     ReactiveFormsModule,
     ProcessRoutingModule,
     MatDialogModule,
+    DragDropModule,
     NgBootstrapFormValidationModule.forRoot()
   ],
   entryComponents: [

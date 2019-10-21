@@ -2,47 +2,19 @@
     <figure>
       <a (click)="openDialog()" >Add more</a>
     </figure>
-    <figure *ngFor="let data of portfolioDataList" >
-      <img src="{{ data.img_url }}"  [routerLink]="['/admin/portfolio/' + data.id]" >
-      <h4>{{ data.name }}</h4>
+    <div cdkDropList  (cdkDropListDropped)="drop($event)">
+      <figure *ngFor="let data of portfolioDataList" cdkDrag >
+          <img src="{{ data.img_url }}"  [routerLink]="['/admin/portfolio/' + data.id]" >
+          <h4>{{ data.name }}</h4>
+    
+          <figcaption>
+            <a (click)="onVisibility(data.id)"> {{ (data.status)? 'visible' : 'invisible' }} </a> | 
+            <a (click)="formFlg = 'update'; onUpdate(data)" >update</a> </figcaption>
+        </figure>
+    </div>
 
-      <figcaption>
-        <a (click)="onVisibility(data.id)"> {{ (data.status)? 'visible' : 'invisible' }} </a> | 
-        <a (click)="formFlg = 'update'; onUpdate(data)" >update</a> </figcaption>
-    </figure>
 
     <figure *ngIf="showLoadMore">
       <a (click)="loadMore()" >Show more</a>
     </figure>
-  </div>
-
-
-<!-- <div class="container">
-  <div class="row">
-    <div class="col-3" *ngFor="let data of portfolioDataList">
-      <mdb-card>
-        <div  [routerLink]="['/admin/portfolio/' + data.id]" class="view rgba-white-slight waves-light" mdbWavesEffect>
-
-          <mdb-card-img src="{{ data.img_url }}" alt="Card image cap"></mdb-card-img>
-          <a>
-            <div class="mask"></div>
-          </a>
-        </div>
-        <mdb-card-body>
-          <mdb-card-title>
-            <h4>{{ data.name }}</h4>
-          </mdb-card-title>
-          <mdb-card-text>
-              {{ ( data.description.length>50)? (data.description | slice:0:30)+'...':(data.description) }}
-          </mdb-card-text>
-          <a (click)="formFlg = 'update'; onUpdate(data)" > edit </a> |
-          <a (click)="onVisibility(data.id)"> {{ (data.status)? 'visible' : 'invisible' }} </a>
-        </mdb-card-body>
-      </mdb-card>
-    </div>
-  </div>
-</div> -->
-
-<!-- <button mat-button (click)="openDialog()">Open dialog</button>
-
-<button *ngIf="showLoadMore" type="submit" (click)="loadMore()">loadmore</button> -->
+</div>

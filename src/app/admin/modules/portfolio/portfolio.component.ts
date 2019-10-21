@@ -5,6 +5,7 @@ import { first } from 'rxjs/operators';
 import { MatDialog } from '@angular/material/dialog';
 import { ModalProtfolioComponent } from './modal-protfolio/modal-protfolio.component';
 import { PortfolioDatalist } from '../../data/schema';
+import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-portfolio',
@@ -60,6 +61,11 @@ export class PortfolioComponent implements OnInit {
           }
 
       })
+  }
+
+  drop(event: CdkDragDrop<any[]>) {
+    moveItemInArray(this.portfolioDataList, event.previousIndex, event.currentIndex);
+    console.log(this.portfolioDataList)
   }
 
   loadMore() {

@@ -34,9 +34,7 @@ export class ProcessComponent implements OnInit {
       });
 
     dialogRef.afterClosed().subscribe(result => {
-      // this.reset();
       this.processService.getList(); 
-
     });
   
   }
@@ -52,7 +50,6 @@ export class ProcessComponent implements OnInit {
       });
 
     dialogRef.afterClosed().subscribe(result => {
-      // this.reset();
       this.processService.getList(); 
 
     }); 
