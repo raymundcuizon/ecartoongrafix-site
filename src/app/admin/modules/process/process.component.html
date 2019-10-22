@@ -1,16 +1,49 @@
-<div id="columns">
-    <figure>
-      <a (click)="openDialog()" >Add more</a>
-    </figure>
-    <figure *ngFor="let data of processService.list" >
-      <img src="{{ data.img_url }}"  [routerLink]="['/admin/process/' + data.id]" >
-      <h4>{{ data.name }}</h4>
-      <figcaption>
-        <a (click)="onVisibility(data.id)"> {{ (data.status)? 'visible' : 'invisible' }} </a> | 
-        <a (click)="formFlg = 'update'; onUpdate(data)" >update</a> </figcaption>
-    </figure>
-
+<!-- <div class="container">
+  <div class="example-list" >
+      <div class="example-box">
+          <button mat-button (click)="openDialog()">Open dialog</button>
+      </div>
   </div>
+  <div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
+    <div class="example-box" *ngFor="let data of processService.list"  cdkDrag>
+      {{ data.name }}
+      <img *cdkDragPreview [src]="data.img_url" [alt]="data.name">
+        <a [routerLink]="['/admin/process/' + data.id]">view</a> | 
+        <a (click)="formFlg = 'update'; onUpdate(data)" > edit </a> | 
+        <a (click)="onVisibility(data.id)"> {{ (data.status)? 'visible' : 'invisible' }} </a>
+    </div>
+  </div>
+</div> -->
+<div class="container">
+
+<div cdkDropListGroup>
+    <div class="example-container">
+      <h2>visible</h2>
+  
+      <div
+        cdkDropList
+        [cdkDropListData]="visible"
+        class="example-list"
+        (cdkDropListDropped)="drop($event)">
+        <div class="example-box" *ngFor="let i of visible" cdkDrag>{{ i.name }}</div>
+      </div>
+    </div>
+  
+    <div class="example-container">
+      <h2>Invisible</h2>
+  
+      <div
+        cdkDropList
+        [cdkDropListData]="inVisible"
+        class="example-list"
+        (cdkDropListDropped)="drop($event)">
+        <div class="example-box" *ngFor="let i of inVisible" cdkDrag>{{ i.name }}</div>
+      </div>
+    </div>
+  </div>
+  
+</div>
+
 
 <!-- <button mat-button (click)="openDialog()">Open dialog</button>
 

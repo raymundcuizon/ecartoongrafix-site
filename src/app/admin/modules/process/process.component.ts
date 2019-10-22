@@ -3,8 +3,9 @@ import { ProcessService } from '../../_services';
 import { FormControl, Validators, FormGroup } from '@angular/forms';
 import { first } from 'rxjs/operators';
 import { MatDialog } from '@angular/material/dialog';
-import { PortfolioDatalist } from '../../data/schema';
+import { PortfolioDatalist, Process } from '../../data/schema';
 import { ProcessModalComponent } from './process-modal/process-modal.component';
+import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-process',
@@ -16,12 +17,20 @@ export class ProcessComponent implements OnInit {
   isActive: boolean = false;
   showLoadMore: boolean = true;
 
+  inVisible: Process[];
+  visible: Process[];
+
+  
   constructor(public processService: ProcessService, public dialog: MatDialog) { }
 
   ngOnInit() {
-    this.processService.getList(); 
-
+    this.processService.getList().subscribe(res => {
+      const d:any = res;
+      this.visible = d.visible as Process[];
+      this.inVisible = d.inVisible as Process[];
+    }); 
   }
+
   openDialog() {
 
     const dialogRef = this.dialog.open(ProcessModalComponent, {
@@ -60,4 +69,50 @@ export class ProcessComponent implements OnInit {
       this.processService.getList(); 
     })
   }
+
+
+  todo = [
+    'Get to work',
+    'Pick up groceries',
+    'Go home',
+    'Fall asleep'
+  ];
+
+  done = [
+    'Get up',
+    'Brush teeth',
+    'Take a shower',
+    'Check e-mail',
+    'Walk dog'
+  ];
+
+  // 
+//   id
+// status
+// slug
+// name
+// description
+// img_url
+
+  drop(event: CdkDragDrop<{
+    id: number,
+    status: number,
+    slug: string,
+    name: string
+    description: string
+    img_url: string
+  }[]>) {
+    if (event.previousContainer === event.container) {
+      moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+
+      console.log(event.container.data);
+    } else {
+      transferArrayItem(event.previousContainer.data,
+                        event.container.data,
+                        event.previousIndex,
+                        event.currentIndex);
+      console.log(event.container.data);
+    }
+  }
+
 }

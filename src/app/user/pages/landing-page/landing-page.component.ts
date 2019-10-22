@@ -26,7 +26,7 @@ export class LandingPageComponent implements OnInit {
   ]
 
   constructor(public portfolioService: PortfolioService, config: NgbCarouselConfig) {
-    config.interval = 3000;
+    config.interval = 10000;
     config.wrap = true;
     config.keyboard = false;
     config.pauseOnHover = false;

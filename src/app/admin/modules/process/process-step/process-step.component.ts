@@ -44,7 +44,6 @@ export class ProcessStepComponent implements OnInit {
 
   drop(event: CdkDragDrop<any[]>) {
     moveItemInArray(this.steps, event.previousIndex, event.currentIndex);
-    console.log(this.steps)
 
     let newSeq = [];
 
