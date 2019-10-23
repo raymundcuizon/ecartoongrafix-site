@@ -15,8 +15,10 @@
   </div>
 </div> -->
 <div class="container">
-
-<div cdkDropListGroup>
+  <div class="example-box">
+      <button mat-button (click)="openDialog()">Open dialog</button>
+  </div>
+  <div cdkDropListGroup>
     <div class="example-container">
       <h2>visible</h2>
   
@@ -24,8 +26,15 @@
         cdkDropList
         [cdkDropListData]="visible"
         class="example-list"
-        (cdkDropListDropped)="drop($event)">
-        <div class="example-box" *ngFor="let i of visible" cdkDrag>{{ i.name }}</div>
+        (cdkDropListDropped)="dropVisible($event)">
+        <div class="example-box" *ngFor="let i of visible" cdkDrag>
+          {{ i.name }}
+          <div>
+            <a [routerLink]="['/admin/process/' + i.id]">view</a> | 
+            <a (click)="formFlg = 'update'; onUpdate(i)" > edit </a>
+          </div>
+          <img *cdkDragPreview [src]="i.img_url" [alt]="i.name">
+        </div>
       </div>
     </div>
   
@@ -36,8 +45,15 @@
         cdkDropList
         [cdkDropListData]="inVisible"
         class="example-list"
-        (cdkDropListDropped)="drop($event)">
-        <div class="example-box" *ngFor="let i of inVisible" cdkDrag>{{ i.name }}</div>
+        (cdkDropListDropped)="dropInvisible($event)">
+        <div class="example-box" *ngFor="let i of inVisible" cdkDrag>
+          {{ i.name }}
+          <img *cdkDragPreview [src]="i.img_url" [alt]="i.name">
+          <div>
+              <a [routerLink]="['/admin/process/' + i.id]">view</a> | 
+              <a (click)="formFlg = 'update'; onUpdate(i)" > edit </a>
+            </div>
+        </div>
       </div>
     </div>
   </div>

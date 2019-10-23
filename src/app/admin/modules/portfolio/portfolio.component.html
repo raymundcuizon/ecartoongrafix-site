@@ -2,16 +2,14 @@
     <figure>
       <a (click)="openDialog()" >Add more</a>
     </figure>
-    <div cdkDropList  (cdkDropListDropped)="drop($event)">
-      <figure *ngFor="let data of portfolioDataList" cdkDrag >
-          <img src="{{ data.img_url }}"  [routerLink]="['/admin/portfolio/' + data.id]" >
-          <h4>{{ data.name }}</h4>
-    
-          <figcaption>
-            <a (click)="onVisibility(data.id)"> {{ (data.status)? 'visible' : 'invisible' }} </a> | 
-            <a (click)="formFlg = 'update'; onUpdate(data)" >update</a> </figcaption>
-        </figure>
-    </div>
+    <figure *ngFor="let data of portfolioDataList"  >
+        <img src="{{ data.img_url }}"  [routerLink]="['/admin/portfolio/' + data.id]" >
+        <h4>{{ data.name }}</h4>
+  
+        <figcaption>
+          <a (click)="onVisibility(data.id)"> {{ (data.status)? 'visible' : 'invisible' }} </a> | 
+          <a (click)="formFlg = 'update'; onUpdate(data)" >update</a> </figcaption>
+      </figure>
 
 
     <figure *ngIf="showLoadMore">

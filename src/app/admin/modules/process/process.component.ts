@@ -70,31 +70,7 @@ export class ProcessComponent implements OnInit {
     })
   }
 
-
-  todo = [
-    'Get to work',
-    'Pick up groceries',
-    'Go home',
-    'Fall asleep'
-  ];
-
-  done = [
-    'Get up',
-    'Brush teeth',
-    'Take a shower',
-    'Check e-mail',
-    'Walk dog'
-  ];
-
-  // 
-//   id
-// status
-// slug
-// name
-// description
-// img_url
-
-  drop(event: CdkDragDrop<{
+  dropVisible(event: CdkDragDrop<{
     id: number,
     status: number,
     slug: string,
@@ -103,15 +79,94 @@ export class ProcessComponent implements OnInit {
     img_url: string
   }[]>) {
     if (event.previousContainer === event.container) {
+      let newSeq = [];
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+      
+      event.container.data.forEach( (val, index, array ) => {
+        newSeq.push({
+          id: val.id,
+          sequence: index + 1,
+          status: true
+        })
+      });
 
-      console.log(event.container.data);
+      this.processService.processSequence(newSeq)
+      .pipe(first())
+      .subscribe(res => {
+        console.log(res);
+      })
+  
+
     } else {
       transferArrayItem(event.previousContainer.data,
                         event.container.data,
                         event.previousIndex,
                         event.currentIndex);
-      console.log(event.container.data);
+      let newSeq = [];
+
+      event.container.data.forEach( (val, index, array ) => {
+        newSeq.push({
+          id: val.id,
+          sequence: index + 1,
+          status: true
+        })
+      });
+
+      this.processService.processSequence(newSeq)
+      .pipe(first())
+      .subscribe(res => {
+        console.log(res);
+      })
+    }
+  }
+
+  dropInvisible(event: CdkDragDrop<{
+    id: number,
+    status: number,
+    slug: string,
+    name: string
+    description: string
+    img_url: string
+  }[]>) {
+    if (event.previousContainer === event.container) {
+      let newSeq = [];
+      moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+      
+      event.container.data.forEach( (val, index, array ) => {
+        newSeq.push({
+          id: val.id,
+          sequence: index + 1,
+          status: true
+        })
+      });
+
+      this.processService.processSequence(newSeq)
+      .pipe(first())
+      .subscribe(res => {
+        console.log(res);
+      })
+
+    } else {
+      transferArrayItem(event.previousContainer.data,
+                        event.container.data,
+                        event.previousIndex,
+                        event.currentIndex);
+      let newSeq = [];
+
+      event.container.data.forEach( (val, index, array ) => {
+        newSeq.push({
+          id: val.id,
+          sequence: index + 1,
+          status: false
+        })
+      });
+
+      this.processService.processSequence(newSeq)
+      .pipe(first())
+      .subscribe(res => {
+        console.log(res);
+      })
+      
     }
   }
 

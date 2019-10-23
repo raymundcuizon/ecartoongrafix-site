@@ -1,4 +1,8 @@
-<table mdbTable hover="true">
+<button  class="btn btn-lg btn-outline-primary pull-right "
+        (click)="openDialog()" >Add faq
+</button>
+ 
+<table mdbTable hover="true" style="margin-top: 10px;">
     <thead>
         <tr>
         <th *ngFor="let head of faqService.headElements" scope="col">{{ head }} </th>
@@ -19,7 +23,3 @@
     </tbody>
 </table>
 
-<button type="button" color="default" rounded="true" 
-        (click)="openDialog()" >Launch Modal
-</button>
- 

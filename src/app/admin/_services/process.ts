@@ -50,6 +50,10 @@ export class ProcessService {
         return this.http.patch(`${this.config.apiUrl}/private/process/${id}/sequence`, data);
     }
 
+    processSequence(data: any) {
+        return this.http.patch(`${this.config.apiUrl}/private/process/sequence`, data);
+    }
+
     visibility(id) {
         return this.http.patch(`${this.config.apiUrl}/private/process/visibility/${id}`, {});
     }
