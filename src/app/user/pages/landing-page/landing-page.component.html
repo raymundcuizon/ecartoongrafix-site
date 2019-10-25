@@ -1,10 +1,10 @@
-<ngb-carousel *ngIf="images">
+<ngb-carousel *ngIf="images" [ngStyle]="{'z-index': '1'}">
   <ng-template ngbSlide *ngFor="let img of images; index as i">
     <div class="picsum-img-wrapper">
       <div class="img-overlay h-100 w-100">
 
       </div>
-      <img class="w-100 h-100" [ngStyle]="{'max-height': contentHeight + 'px', 'object-fit': 'cover'}" [src]="img" alt="My image {{i + 1}} description">
+      <img class="c-image" [ngStyle]="{'max-height': contentHeight + 'px', 'object-fit': 'cover'}" [src]="img" alt="My image {{i + 1}} description">
     </div>
     <div class="carousel-caption">
       <h3>My slide {{i + 1}} title</h3>

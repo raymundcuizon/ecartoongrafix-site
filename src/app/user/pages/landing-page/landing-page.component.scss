@@ -2,6 +2,10 @@
 -------------------------------------------------- */
 
 /* Carousel base class */
+.c-image{
+	min-height: 100vh;
+  width: 100%;
+}
 .img-overlay{
   background: linear-gradient(50deg, rgba(0, 0, 0, 0.20), rgba(0, 0, 0, 0.50));
   background-size: 400% 400%;
@@ -43,7 +47,6 @@
 .marketing{
   position: relative;
   top: -3px;
-  z-index: -1;
 }
 .marketing .col-lg-4 {
   margin-bottom: 1.5rem;
