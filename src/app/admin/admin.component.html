@@ -75,7 +75,9 @@
     <!-- <mat-sidenav-content> -->
     <div [ngClass]="{'router_grow':!drawerOpen, 'router_shrink':drawerOpen,
         'router_dim':drawerShow && !drawerOpen}" style="background-color: #ffffff; height: 100%;">
-        <router-outlet></router-outlet>
+        <div class="container">
+          <router-outlet></router-outlet>
+        </div>
     </div>
   </mat-sidenav-container>
   <app-admin-footer></app-admin-footer>

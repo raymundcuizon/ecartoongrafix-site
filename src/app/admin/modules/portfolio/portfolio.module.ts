@@ -10,6 +10,7 @@ import { MatDialogModule } from '@angular/material';
 import { NgBootstrapFormValidationModule } from 'ng-bootstrap-form-validation';
 import { ModalArtworkComponent } from './modal-artwork/modal-artwork.component';
 import { ModalArtworkUpdateComponent } from './modal-artwork-update/modal-artwork-update.component';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { ModalArtworkUpdateComponent } from './modal-artwork-update/modal-artwor
     FormsModule,
     ReactiveFormsModule,
     MatDialogModule,
-    NgBootstrapFormValidationModule.forRoot()
+    NgBootstrapFormValidationModule.forRoot(),
+    DragDropModule
   ],
   entryComponents: [
     ModalProtfolioComponent,

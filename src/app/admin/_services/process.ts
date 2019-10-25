@@ -18,11 +18,11 @@ export class ProcessService {
     }
 
     getList() {
-      this.http.get(`${this.config.apiUrl}/public/process`)
-          .toPromise().then(res => {
-              const d: any = res;
-              this.list = d.datalist as Process[];
-          });
+      return this.http.get(`${this.config.apiUrl}/private/process`);
+        //   .toPromise().then(res => {
+        //       const d: any = res;
+        //       this.list = d.datalist as Process[];
+        //   });
     }
 
     get(id) {
@@ -44,6 +44,14 @@ export class ProcessService {
 
     update(id, data) {
         return this.http.patch(`${this.config.apiUrl}/private/process/${id}`, data);
+    }
+
+    setepSequence(id, data) {
+        return this.http.patch(`${this.config.apiUrl}/private/process/${id}/sequence`, data);
+    }
+
+    processSequence(data: any) {
+        return this.http.patch(`${this.config.apiUrl}/private/process/sequence`, data);
     }
 
     visibility(id) {

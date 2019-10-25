@@ -6,6 +6,8 @@ import { FormModalComponent } from './form-modal/form-modal.component';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
+import { MatDialogModule } from '@angular/material';
+import { NgBootstrapFormValidationModule } from 'ng-bootstrap-form-validation';
 
 
 @NgModule({
@@ -17,6 +19,11 @@ import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
     MDBBootstrapModule.forRoot(),
     FormsModule,
     ReactiveFormsModule,
+    MatDialogModule,
+    NgBootstrapFormValidationModule.forRoot()
+  ],
+  entryComponents: [
+    FormModalComponent
   ]
 })
 export class FaqModule { }

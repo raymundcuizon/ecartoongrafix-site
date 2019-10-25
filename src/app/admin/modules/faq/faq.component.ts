@@ -2,6 +2,8 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { FaqService } from '../../_services'
 import { FormControl, FormGroup, Validators } from "@angular/forms";
 import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import { MatDialog } from '@angular/material/dialog';
+import { FormModalComponent } from './form-modal/form-modal.component';
 
 
 @Component({
@@ -17,67 +19,43 @@ export class FaqComponent implements OnInit {
 
   @ViewChild('frame', { static: true }) frame;
 
-  constructor(public faqService: FaqService) { }
+  constructor(public faqService: FaqService, public dialog: MatDialog) { }
   ngOnInit() {
-
     this.faqService.getList();
-    this.createForm();
-
   }
 
-  createForm(){
-    this.validatingForm = new FormGroup({
-      formTitle: new FormControl('', Validators.required),
-      formQuestion: new FormControl('', Validators.required),
-      formAnswer: new FormControl('', Validators.required)
+ 
+
+  openDialog() {
+
+    const dialogRef = this.dialog.open(FormModalComponent, {
+        width: '50%', height: '500px',
+        data: {
+          action: 'add',
+          details: null 
+        },
+        disableClose: false
+      });
+
+    dialogRef.afterClosed().subscribe(result => {
+      this.faqService.getList();
     });
-  }
-
-  get f() { return this.validatingForm.controls; }
-
-  formFaqSubmit(){
-    if (this.validatingForm.invalid) { return; }
-
-    const data = {
-      title: this.f.formTitle.value,
-      question: this.f.formQuestion.value,
-      answer: this.f.formAnswer.value
-    }
-
-    if(this.formFlg == 'add') {
-      this.faqService.create(data).subscribe(res => {
-        this.faqService.getList();
-        this.faqModalClose();
-      })
-    } else {  
-      this.faqService.update(this.f.id.value, data).subscribe(res => {
-        this.faqService.getList();
-        this.faqModalClose();
-      })
-    }
-  }
-
-  faqModalClose(){
-    this.formFlg = 'add';
-    this.frame.hide();
-    this.createForm();
-  }
-
-  faqModalShow(){
-    this.frame.show();
+  
   }
 
   onUpdate(data){
+    const dialogRef = this.dialog.open(FormModalComponent, {
+        width: '50%', height: '500px',
+        data: {
+          action: 'update',
+          details: data 
+        },
+        disableClose: false
+      });
 
-    this.frame.show();
-
-    this.validatingForm = new FormGroup({
-      id: new FormControl(data.id),
-      formTitle: new FormControl(data.title, Validators.required),
-      formQuestion: new FormControl(data.question, Validators.required),
-      formAnswer: new FormControl(data.answer, Validators.required)
-    });
-
+    dialogRef.afterClosed().subscribe(result => {
+      this.faqService.getList();
+    }); 
   }
 
   onDelete(id: number){
