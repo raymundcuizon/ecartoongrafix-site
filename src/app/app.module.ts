@@ -55,7 +55,7 @@ import { UserModule} from './user/user.module';
     NgbModule,
     UserModule,
     UserRoutingModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
   providers: [
     AuthenticationService,

@@ -7,7 +7,7 @@ import { FaqService } from '../../_services'
   styleUrls: ['./faq.component.scss']
 })
 export class FaqComponent implements OnInit {
-
+  activeFaqindex = 0;
   constructor(public faqService: FaqService) { }
 
   ngOnInit() {

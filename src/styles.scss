@@ -1,3 +1,6 @@
+// @import 'variables';
+@import '../node_modules/bootstrap/scss/bootstrap';
+
 // /* You can add global styles to this file, and also import other style files */
 
 // html, body { height: 100%; }
@@ -44,3 +47,4 @@ $candy-app-theme: mat-light-theme($candy-app-primary, $candy-app-accent, $candy-
 .pointer-hand{
   cursor: pointer;
 }
+

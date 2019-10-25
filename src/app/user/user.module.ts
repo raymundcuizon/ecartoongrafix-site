@@ -9,7 +9,11 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { UserRoutingModule } from './user-routing.module';
 import { UserComponent, LandingPageComponent, ServicesComponent, ProcessComponent, StoreComponent, FaqComponent, AboutComponent, ContactComponent, PortfolioComponent, PortfolioItemsComponent } from './pages';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+// import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+// RECOMMENDED
+import { AccordionModule } from 'ngx-bootstrap/accordion';
 
 @NgModule({
   declarations: [UserComponent, LandingPageComponent, ServicesComponent, ProcessComponent, StoreComponent, FaqComponent, AboutComponent, ContactComponent, PortfolioComponent, PortfolioItemsComponent],
@@ -22,6 +26,10 @@ import { UserComponent, LandingPageComponent, ServicesComponent, ProcessComponen
     FormsModule,
     ReactiveFormsModule,
     // MDBBootstrapModule.forRoot(),
+
+    BsDropdownModule.forRoot(),
+    AccordionModule.forRoot(),
+
     MaterialsModule
   ]
 })
