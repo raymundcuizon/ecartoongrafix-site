@@ -39,10 +39,10 @@
   <div (click)="redirectPortfolioitems(data.id)" class="col-md-6 px-0 pointer-hand img-hover-zoom img-hover-zoom--blur" *ngFor="let data of portfolioService.portfolioDataList">
     <img class="portfolio-img" [src]="data.img_url" alt="" [ngStyle]="{'max-height': '500px'}">
     <div class="img-overlay-text-blur">
-      <h1 class="text-center w-100 overlay-text-blur text-white font-weight-bolder">{{data.name}}</h1>
+      <h1 class="text-center w-100 overlay-text-blur text-white font-weight-bolder">{{data.name | uppercase}}</h1>
     </div>
     <div class="img-overlay-text">
-      <h1 class="text-center w-100 overlay-text text-white font-weight-bolder">{{data.name}}</h1>
+      <h1 class="text-center w-100 overlay-text text-white font-weight-bolder">{{data.name | uppercase}}</h1>
     </div>
   </div>
 
