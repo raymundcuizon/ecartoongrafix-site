@@ -13,16 +13,17 @@
   top: 50%;
   transition: all 0.5s ease-in-out;
 }
-.img-hover-zoom:hover .overlay-text-blur{
-  padding-top: 13px;
-  padding-bottom: 13px;
-  background: rgba(255, 0, 0, 0.45);
-  filter: blur(15px);
-  transition: all 0.5s ease-in-out;
-}
+// .img-hover-zoom:hover .overlay-text-blur{
+//   padding-top: 13px;
+//   padding-bottom: 13px;
+//   // background: rgba(255, 0, 0, 0.85); //change opacity 0.5 adjust it solid = 1
+//   // filter: blur(15px);
+//   transition: all 0.5s ease-in-out;
+// }
 .img-hover-zoom:hover .overlay-text{
   padding-top: 10px;
   padding-bottom: 10px;
+  background: rgba(255, 0, 0, 0.85); //change opacity 0.5 adjust it solid = 1
   transition: all 0.5s ease-in-out;
 }
 .img-hover-zoom:hover .img-overlay-text-blur{
