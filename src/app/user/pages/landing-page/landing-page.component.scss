@@ -40,6 +40,11 @@
 -------------------------------------------------- */
 
 /* Center align the text within the three columns below the carousel */
+.marketing{
+  position: relative;
+  top: -3px;
+  z-index: -1;
+}
 .marketing .col-lg-4 {
   margin-bottom: 1.5rem;
   text-align: center;

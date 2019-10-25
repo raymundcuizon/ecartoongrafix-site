@@ -6,4 +6,5 @@ export * from './faq/faq.component';
 export * from './about/about.component';
 export * from './contact/contact.component';
 export * from './portfolio/portfolio.component';
+export * from './portfolio-items/portfolio-items.component';
 export * from './user.component';

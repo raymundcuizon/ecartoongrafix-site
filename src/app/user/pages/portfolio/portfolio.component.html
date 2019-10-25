@@ -1,59 +1,43 @@
-<div class="border-bottom">
-  <h1 class="mt-5 px-5 text-center">PORTFOLIO ITEMS HERE:</h1>
-  <hr>
-  <!-- ITEMS START HERE -->
-  <div class="px-5 mt-5">
-    <div class="row mb-3 text-center">
-      <!-- loop item here -->
-      <div *ngFor="let data of portfolioService.portfolioDataList" class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
-        <div class="card py-2 px-0 add-shadow">
-          <!-- <div class="card-header">
-            <h4 class="my-0 font-weight-normal">Item Name</h4>
-          </div> -->
-          <div class="img-hover-zoom">
-            <img src="{{ data.img_url }}" class="card-img-top" alt="...">
-          </div>
-          <div class="card-body">
-            <h1 class="card-title pricing-card-title">{{ data.name }}<small class="text-muted">3,000</small></h1>
-            <p class="text-muted">{{ data.description }}</p>
-            <ul class="list-unstyled mt-3 mb-4">
-              <li>Additional Details Here</li>
-              <li>Additional Details Here</li>
-              <li>Additional Details Here</li>
-              <li>Additional Details Here</li>
-            </ul>
-            <button type="button" class="btn btn-lg btn-block btn-outline-primary">Add to cart</button>
-          </div>
-        </div>
-      </div>
+<div class="hero" sr-only="this is the banner">
+  <h1 class="text-center">HELLO, We are <span class="text-danger">eCartoongrafix!</span><br>
+  <h3 class="text-center my-5">Want to know more about us?
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+      <defs>
+    	  <symbol id="arrow" viewBox="0 0 100 100">
+    	  	<path d="M12.5 45.83h64.58v8.33H12.5z"/>
+        		<path d="M59.17 77.92l-5.84-5.84L75.43 50l-22.1-22.08 5.84-5.84L87.07 50z"/>
+    	  </symbol>
+      </defs>
+    </svg>
+    <div class="content">
 
-      <!-- sample image -->
-      <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
-        <div class="card py-2 px-0 add-shadow">
-          <!-- <div class="card-header">
-            <h4 class="my-0 font-weight-normal">Item Name</h4>
-          </div> -->
-          <div class="img-hover-zoom">
-            <img src="https://placeimg.com/1080/500/animals" class="card-img-top" alt="...">
-          </div>
-          <div class="card-body">
-            <h1 class="card-title pricing-card-title">Php <small class="text-muted">3,000</small></h1>
-            <ul class="list-unstyled mt-3 mb-4">
-              <li>Additional Details Here</li>
-              <li>Additional Details Here</li>
-              <li>Additional Details Here</li>
-              <li>Additional Details Here</li>
-            </ul>
-          </div>
-          <div class="card-footer text-muted text-right">
-            <span class="read-more">
-                Read More
-            </span>
-          </div>
-        </div>
-      </div>
-      <!-- end loop -->
-    </div>
-  </div>
+  		<a routerLink="/about" class="button-custom">
+  			Click Here
+  			<span>
+  				<svg>
+  					<use xlink:href="#arrow" href="#arrow"></use>
+  				</svg>
+  			</span>
+  		</a>
+
+  	</div>
+  </h3>
+  <h6 class="text-center">We prepared for you most of our best works. We hope you enjoy viewing it.</h6>
+  <h1 class="text-center">CHECK OUR PORTFOLIO BELOW</h1></h1>
+  <a class="scroll-link" href="/portfolio#content" (click)="smoothScroll()">
+    <svg class="mouse" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 76 130" preserveAspectRatio="xMidYMid meet">
+    <g fill="none" fill-rule="evenodd">
+      <rect width="70" height="118" x="1.5" y="1.5" stroke="#FFF" stroke-width="3" rx="36"/>
+      <circle class="scroll" cx="36.5" cy="31.5" r="4.5" fill="#FFF"/>
+    </g>
+  </svg>
+  </a>
+
+</div>
+<div class="border-bottom" id="content">
+  <!-- ITEMS START HERE -->
+  <span *ngFor="let data of portfolioService.portfolioDataList">
+    <img (click)="redirectPortfolioitems(data.id)"  class="col-md-6 px-0 pointer-hand" [src]="data.img_url" alt="" [ngStyle]="{'max-height': '500px'}">
+  </span>
 
 </div>

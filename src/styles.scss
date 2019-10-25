@@ -40,3 +40,7 @@ $candy-app-theme: mat-light-theme($candy-app-primary, $candy-app-accent, $candy-
 .modal-backdrop{
   z-index: -3;
 }
+
+.pointer-hand{
+  cursor: pointer;
+}

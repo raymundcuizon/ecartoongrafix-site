@@ -8,11 +8,11 @@ import { MaterialsModule } from './../materials.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { UserRoutingModule } from './user-routing.module';
-import { UserComponent, LandingPageComponent, ServicesComponent, ProcessComponent, StoreComponent, FaqComponent, AboutComponent, ContactComponent, PortfolioComponent } from './pages';
+import { UserComponent, LandingPageComponent, ServicesComponent, ProcessComponent, StoreComponent, FaqComponent, AboutComponent, ContactComponent, PortfolioComponent, PortfolioItemsComponent } from './pages';
 
 
 @NgModule({
-  declarations: [UserComponent, LandingPageComponent, ServicesComponent, ProcessComponent, StoreComponent, FaqComponent, AboutComponent, ContactComponent, PortfolioComponent],
+  declarations: [UserComponent, LandingPageComponent, ServicesComponent, ProcessComponent, StoreComponent, FaqComponent, AboutComponent, ContactComponent, PortfolioComponent, PortfolioItemsComponent],
   imports: [
     NgbModule,
     CommonModule,

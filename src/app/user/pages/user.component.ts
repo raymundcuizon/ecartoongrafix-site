@@ -1,5 +1,5 @@
 import { Component, OnInit, HostListener, Inject } from '@angular/core';
-import { DOCUMENT } from '@angular/common';
+// import { DOCUMENT } from '@angular/common';
 
 
 @Component({
@@ -11,7 +11,7 @@ export class UserComponent implements OnInit {
   windowScrolled: boolean;
   windowScrolled_rev: boolean;
 
-  constructor(@Inject(DOCUMENT) private document: Document) { }
+  constructor() { } //@Inject(DOCUMENT) private document: Document
   @HostListener("window:scroll", [])
   onWindowScroll() {
     if (window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop > 100) {
