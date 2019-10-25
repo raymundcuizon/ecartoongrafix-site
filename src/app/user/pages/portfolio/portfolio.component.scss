@@ -1,26 +1,75 @@
+
+
+// zoom effect start HERE
 /* [1] The container */
+.portfolio-img{
+  height: 100%;
+  width: 100%;
+}
+.img-overlay-text, .img-overlay-text-blur{
+  width: 100%;
+  display: flex;
+  position: absolute;
+  top: 50%;
+  transition: all 0.5s ease-in-out;
+}
+.img-hover-zoom:hover .overlay-text-blur{
+  padding-top: 13px;
+  padding-bottom: 13px;
+  background: rgba(255, 0, 0, 0.45);
+  filter: blur(15px);
+  transition: all 0.5s ease-in-out;
+}
+.img-hover-zoom:hover .overlay-text{
+  padding-top: 10px;
+  padding-bottom: 10px;
+  transition: all 0.5s ease-in-out;
+}
+.img-hover-zoom:hover .img-overlay-text-blur{
+  top: 80%;
+  transition: all 0.5s ease-in-out;
+}
+.img-hover-zoom:hover .img-overlay-text{
+  top: 80%;
+  transition: all 0.5s ease-in-out;
+}
+// .overlay-text{
+//   transition: all 1s ease-in-out;
+//   margin: auto;
+// }
+// .img-overlay-text:hover .overlay-text{
+//   transition: all 1s ease-in-out;
+//   margin: auto 0 0 0 !important;
+// }
 .img-hover-zoom {
+  position: relative;
+  // height: 300px; /* [1.1] Set it as per your need */
   overflow: hidden; /* [1.2] Hide the overflowing of child elements */
 }
 
 /* [2] Transition property for smooth transformation of images */
-.card img {
-  // min-height: 180px;
+.img-hover-zoom img {
   transition: transform .5s ease;
 }
 
 /* [3] Finally, transforming the image when container gets hovered */
-.card:hover img {
+.img-hover-zoom:hover img {
+  transform: scale(1.5);
+}
+/* Blur-zoom Container */
+.img-hover-zoom--blur img {
+  transition: transform 0.5s, filter 1s ease-in-out;
+  filter: blur(2px) grayscale(100%);
+  transform: scale(1);
+}
+
+/* The Transformation */
+.img-hover-zoom--blur:hover img {
+  filter: blur(0) grayscale(0);
   transform: scale(1.2);
 }
-.read-more {
-    color: #222;
-    border-bottom: 2px solid #5bd1d7;
-    font-weight: 600;
-}
-.read-more:hover {
-    color: #5bd1d7;
-}
+
+
 $mouse-width: 2.5rem;
 .hero {
 	position: relative;

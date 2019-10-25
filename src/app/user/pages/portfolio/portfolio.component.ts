@@ -28,7 +28,7 @@ export class PortfolioComponent implements OnInit {
     ///////////////////////////////////////////////
 
     this.portfolioService.getList();
-    console.log(this.portfolioService.getList());
+    console.log(this.portfolioService.portfolioDataList);
   }
 
   loadMore() {
