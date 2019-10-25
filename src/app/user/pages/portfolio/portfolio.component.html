@@ -34,10 +34,16 @@
   </a>
 
 </div>
-<div class="border-bottom" id="content">
+<div class="row px-3 border-bottom" id="content">
   <!-- ITEMS START HERE -->
-  <span *ngFor="let data of portfolioService.portfolioDataList">
-    <img (click)="redirectPortfolioitems(data.id)"  class="col-md-6 px-0 pointer-hand" [src]="data.img_url" alt="" [ngStyle]="{'max-height': '500px'}">
-  </span>
+  <div (click)="redirectPortfolioitems(data.id)" class="col-md-6 px-0 pointer-hand img-hover-zoom img-hover-zoom--blur" *ngFor="let data of portfolioService.portfolioDataList">
+    <img class="portfolio-img" [src]="data.img_url" alt="" [ngStyle]="{'max-height': '500px'}">
+    <div class="img-overlay-text-blur">
+      <h1 class="text-center w-100 overlay-text-blur text-white font-weight-bolder">{{data.name}}</h1>
+    </div>
+    <div class="img-overlay-text">
+      <h1 class="text-center w-100 overlay-text text-white font-weight-bolder">{{data.name}}</h1>
+    </div>
+  </div>
 
 </div>
