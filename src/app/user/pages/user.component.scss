@@ -1,5 +1,15 @@
 /* Custom page CSS
 -------------------------------------------------- */
+@font-face { 
+  font-family: ge-inspira-bold; 
+  src: url('../../../assets/fonts/GE-Inspira-Bold.ttf'); 
+}
+
+@font-face { 
+  font-family: ge-inspira-regular; 
+  src: url('../../../assets/fonts/GE-Inspira-Regular.ttf'); 
+}
+
 #main-div{
 }
 
@@ -12,39 +22,51 @@ main > .container-fluid {
   // padding-top: 79px;
 }
 .navbar .nav-brand img{
-  -webkit-filter: drop-shadow(0px 1px 1px #000000);
-  filter: drop-shadow(0px 1px 1px #000000);
+  // -webkit-filter: drop-shadow(0px 1px 1px #000000);
+  // filter: drop-shadow(0px 1px 1px #000000);
   transition: all .4s ease-in-out;
   width: 80px;
   height: 80px;
 }
 .logoName{
-  -webkit-filter: drop-shadow(0px 1px 1px #000000);
-  filter: drop-shadow(0px 1px 1px #000000);
+  // -webkit-filter: drop-shadow(0px 1px 1px #000000);
+  // filter: drop-shadow(0px 1px 1px #000000);
+  color: #000;
   transition: all .4s ease-in-out;
   vertical-align: -webkit-baseline-middle;
   position: relative;
   top: 18px;
   padding-left: 10px;
-  font-size: 25px;
+  font-size: 22px;
   // font-weight: bolder;
 }
-.mynav-link{
-  -webkit-filter: drop-shadow(0px 1px 1px #000000);
-  filter: drop-shadow(0px 1px 1px #000000);
-  font-size: 25px;
+.mynav-link {
+  font-family: ge-inspira-regular;
+  // -webkit-filter: drop-shadow(0px 1px 1px #000000);
+  // filter: drop-shadow(0px 1px 1px #000000);
+  font-size: 22px;
   // font-weight: bolder;
   padding-top: 5px;
+
+  .nav-item {
+    color: #000;
+    padding-left: 15px;
+  }
+  .nav-item:hover {
+    color: #dc3b45!important;
+  }
 }
+
+
 .navScollClass{
   height: 60px !important;
   background: #ffffff;
   transition: all .4s ease-in-out;
-  box-shadow: 0 5px 5px -2px rgba(70, 70, 70, 0.3);
+  // box-shadow: 0 5px 5px -2px rgba(70, 70, 70, 0.3);
 }
 .navScollClass .logoName{
-  -webkit-filter: drop-shadow(1px 2px 2px #ffffff);
-  filter: drop-shadow(1px 2px 2px #fffffff);
+  // -webkit-filter: drop-shadow(1px 2px 2px #ffffff);
+  // filter: drop-shadow(1px 2px 2px #fffffff);
   transition: all .4s ease-in-out;
   color: #000000;
   font-size: 20px;
@@ -52,21 +74,50 @@ main > .container-fluid {
   padding-left: 5px;
 }
 .navScollClass div .mynav-link{
-  -webkit-filter: drop-shadow(1px 2px 2px #ffffff);
-  filter: drop-shadow(1px 2px 2px #fffffff);
+  // -webkit-filter: drop-shadow(1px 2px 2px #ffffff);
+  // filter: drop-shadow(1px 2px 2px #fffffff);
   font-size: 20px;
   font-weight: normal;
   padding-top: 0px;
 }
 .navScollClass .nav-brand img{
-  -webkit-filter: drop-shadow(1px 2px 2px #ffffff);
-  filter: drop-shadow(1px 2px 2px #ffffff);
+  // -webkit-filter: drop-shadow(1px 2px 2px #ffffff);
+  // filter: drop-shadow(1px 2px 2px #ffffff);
   transition: all .4s ease-in-out;
   width: 40px;
   height: 40px;
 }
 .footer {
   // background-color: #f5f5f5;
+  min-height: 355px;
+  background-color:  #F26052;
+  background-position: center top;
+  background-repeat: no-repeat;
+  padding: 90px 30px 72px;
+  background-size: cover;
+  background-image: url('../../../assets/images/triangles-2.png');
+
+  h5 {
+    font-family: ge-inspira-bold;
+    font-size: 27px;
+    color: #f1f1f1
+  }
+
+  a {
+    text-decoration: none;
+    color: white;
+    font-size: 15px;
+  }
+
+  a:hover {
+    color: #f1f1f1;
+
+  }
+
+  li {
+    padding: 5px 0px 0px 5px;
+  }
+
 }
 
 .footer > .container {
@@ -88,8 +139,8 @@ code {
   // left: -80px;
   top: -34px;
   // z-index: 1;
-  -webkit-filter: drop-shadow(5px 5px 5px #000000);
-  filter: drop-shadow(5px 5px 5px #000000);
+  // -webkit-filter: drop-shadow(5px 5px 5px #000000);
+  // filter: drop-shadow(5px 5px 5px #000000);
 }
 @media only screen and (max-width: 767px) {
 .nav-container{

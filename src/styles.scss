@@ -48,3 +48,46 @@ $candy-app-theme: mat-light-theme($candy-app-primary, $candy-app-accent, $candy-
   cursor: pointer;
 }
 
+
+// Faq override style
+.faq-content {
+
+    .card {
+        border-radius: unset!important;
+    }
+
+    .panel-heading {
+      background-color: #F2F2F2;
+    }
+
+    .panel-heading:hover {
+      background-color: #eaeaea;
+    }
+    .panel-heading, .panel {
+      border: unset;
+    }
+}
+
+// Process content override
+.process-content {
+
+  .card {
+      border-radius: unset!important;
+  }
+
+  .panel-heading {
+    background-color: #F2F2F2;
+    min-height: 395px;
+    background-position: center top;
+    background-repeat: no-repeat;
+    padding: 90px 30px 72px;
+    background-size: cover;
+  }
+
+  // .panel-heading:hover {
+  //   // background-color: #eaeaea;
+  // }
+  .panel-heading, .panel {
+    border: unset;
+  }
+}

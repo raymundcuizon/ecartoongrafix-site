@@ -1,0 +1,25 @@
+.faq-active {
+    color: #F26052;
+}
+
+@mixin centerer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .faq-left{
+    @include centerer;
+}
+
+// .faq-footer {
+//     min-height: 355px;
+//     background-color:  #F26052;
+//     background-position: center top;
+//     background-repeat: no-repeat;
+//     padding: 90px 30px 72px;
+//     background-size: cover;
+//     background-image: url('../../../../assets/images/triangles-2.png');
+
+// }

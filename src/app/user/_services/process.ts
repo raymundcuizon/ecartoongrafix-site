@@ -18,11 +18,8 @@ export class ProcessService {
     }
 
     getList() {
-      this.http.get(`${this.config.apiUrl}/public/process`)
-          .toPromise().then(res => {
-              const d: any = res;
-              this.list = d.datalist as Process[];
-          });
+      return this.http.get(`${this.config.apiUrl}/public/process`);
+          
     }
 
     get(id) {

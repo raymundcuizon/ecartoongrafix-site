@@ -5,5 +5,5 @@ export class Process {
   description: string;
   img_url?: string;
   status: boolean;
-
+  sequence: number;
 }

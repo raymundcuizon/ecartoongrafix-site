@@ -1,12 +1,40 @@
-<div class="container border-bottom pt-5 mt-5">
-  <!-- <h1>process works!</h1> -->
-  <ul>
-    <li *ngFor="let data of processService.list">
-      {{ data.name }}
+<div class="pt-5 mt-5">  
+  <accordion [isAnimated]="true" [closeOthers]="true">
+      <accordion-group 
+        *ngFor="let data of list; let i = index"
+        class="process-content"
+        id="processPanel_{{ i }}"
+        #group
+        (click)="doSomethingOnOpen(data)">
+        <span accordion-heading class="sample-class">
+            <!-- <i [ngClass]="{'fa-chevron-down faq-active': group?.isOpen, 'fa-chevron-right': !group?.isOpen}"
+            class="fa align-bottom" aria-hidden="true"></i>
+            <span [ngClass]="{'faq-active' : group?.isOpen }"> -->
+              <!-- {{ data.name }} -->
+            <!-- </span> -->
+        </span>
+          <ul>
+            <li *ngFor="let data of steps; let i = index">
+              <h3 class="text-center"> 
+                  {{ data.title }}
+              </h3> 
+              <div class="container">
+                  <p class="text-center">
+                      {{ data.description }}
+                    </p>
+              </div>
 
-      <!-- name
-description
-img_url -->
-    </li>
-  </ul>
+              <div class="text-center">
+                <img src="{{ data.img_url }}" class="rounded img-fluid" alt="Cinque Terre">
+                <br>
+                <img *ngIf="steps.length != (i+1)" src="../../../../assets/images/arrow_down.gif" alt="">
+                <!-- {{  }} -->
+              </div>
+
+            </li>
+          </ul>
+          <!-- <div [innerHtml]="faq.answer" ></div> -->
+        </accordion-group>
+  </accordion>
+
 </div>

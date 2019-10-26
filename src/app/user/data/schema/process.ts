@@ -5,3 +5,12 @@ export class Process {
   description: string;
   img_url?: string;
 }
+
+export class Step {
+  id?: number;
+  step?: number;
+  status?: number;
+  title: string;
+  description:string;
+  img_url: string;
+}
