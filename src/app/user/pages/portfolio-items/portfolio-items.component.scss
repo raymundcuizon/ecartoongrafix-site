@@ -1,0 +1,217 @@
+//BANNER STARTS HERE
+$mouse-width: 2.5rem;
+.hero {
+	position: relative;
+	min-height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 12rem 2rem;
+	color: white;
+	background: linear-gradient(to bottom,  rgba(69,72,77,1) 0%,rgba(0,0,0,1) 100%), url('https://source.unsplash.com/random/1920x1080/?sky') no-repeat center center fixed;
+	background-blend-mode: multiply;
+	// background-image: linear-gradient(to bottom,  rgba(69,72,77,1) 0%,rgba(0,0,0,1) 100%)
+	// background-blend-mode: multiply;
+	-webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.mouse {
+	max-width: $mouse-width;
+	width: 100%;
+	height: auto;
+}
+
+.scroll {
+	animation-name: scroll;
+	animation-duration: 1.5s;
+	animation-timing-function: cubic-bezier(0.650, -0.550, 0.250, 1.500);
+	animation-iteration-count: infinite;
+	transform-origin: 50% 20.5px;
+	will-change: transform, opacity;
+	opacity: 1;
+}
+
+.scroll-link {
+	position: absolute;
+	bottom: 1rem;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+@keyframes scroll {
+
+	0%, 20% {
+		transform: translateY(0) scaleY(1);
+	}
+
+	100% {
+		transform: translateY(36px) scaleY(2);
+		opacity: 0;
+	}
+
+}
+
+
+// CUSTOM BUTTON
+$button-color: #ff3547;//#4A90E2;
+$transition-time: 750ms;
+
+.button-custom {
+	position: relative;
+	display: inline-flex;
+	text-decoration: none;
+	color: #fff;
+	background-color: lighten($button-color, 10%);
+	padding-left: 2rem;
+	overflow: hidden;
+	z-index: 1;
+	align-items: center;
+	box-shadow: 0px 3px 4px -4px rgba(0,0,0,0.75);
+
+	&::before {
+		content: '';
+		position: absolute;
+		left: 0;
+		top: 0;
+		transform: scaleX(0);
+		transform-origin: 0 50%;
+		width: 100%;
+		height: 100%;
+		background-color: $button-color;
+		z-index: -1;
+		transition: transform $transition-time;
+	}
+
+	span {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin-left: 2rem;
+		padding: 1rem;
+		overflow: hidden;
+		background-color: $button-color;
+	}
+
+	svg {
+		max-width: 20px;
+		width: 100%;
+		height: auto;
+		max-height: 18px;
+		fill: white;
+	}
+
+	&:hover {
+
+		&::before {
+			transform: scaleX(1);
+		}
+
+		svg {
+			animation: moveArrow $transition-time;
+		}
+
+	}
+
+}
+
+@keyframes moveArrow {
+
+	0% {
+		transform: translateX(0px);
+	}
+
+	49% {
+		transform: translateX(50px);
+	}
+
+	50% {
+		transform: translateX(-50px);
+	}
+
+	100% {
+		transform: translateX(0px);
+	}
+
+}
+
+// zoom effect start HERE
+/* [1] The container */
+.portfolio-img{
+  height: ((848 - 144)/2)+px;
+  width: 100%;
+}
+.img-overlay-text, .img-overlay-text-blur{
+  width: 100%;
+  display: flex;
+  position: absolute;
+  top: 50%;
+  transition: all 0.5s ease-in-out;
+}
+// .img-hover-zoom:hover .overlay-text-blur{
+//   padding-top: 13px;
+//   padding-bottom: 13px;
+//   // background: rgba(255, 0, 0, 0.85); //change opacity 0.5 adjust it solid = 1
+//   // filter: blur(15px);
+//   transition: all 0.5s ease-in-out;
+// }
+.img-hover-zoom:hover .overlay-text{
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background: rgba(255, 0, 0, 0.55); //change opacity 0.5 adjust it solid = 1
+  transition: all 0.5s ease-in-out;
+}
+.img-hover-zoom:hover .img-overlay-text-blur{
+  top: 80%;
+  transition: all 0.5s ease-in-out;
+}
+.img-hover-zoom:hover .img-overlay-text{
+  top: 80%;
+  transition: all 0.5s ease-in-out;
+}
+// .overlay-text{
+//   transition: all 1s ease-in-out;
+//   margin: auto;
+// }
+// .img-overlay-text:hover .overlay-text{
+//   transition: all 1s ease-in-out;
+//   margin: auto 0 0 0 !important;
+// }
+.img-hover-zoom {
+  position: relative;
+  // height: 300px; /* [1.1] Set it as per your need */
+  overflow: hidden; /* [1.2] Hide the overflowing of child elements */
+}
+
+/* [2] Transition property for smooth transformation of images */
+.img-hover-zoom img {
+  transition: transform .5s ease;
+}
+
+/* [3] Finally, transforming the image when container gets hovered */
+.img-hover-zoom:hover img {
+  transform: scale(1.5);
+}
+/* Blur-zoom Container */
+.img-hover-zoom--blur img {
+  transition: transform 0.5s, filter 1s ease-in-out;
+  filter: blur(2px) grayscale(100%);
+  transform: scale(1);
+}
+
+/* The Transformation */
+.img-hover-zoom--blur:hover img {
+  filter: blur(0) grayscale(0);
+  transform: scale(1.2);
+}
+
+
+// CARD COLUMNS
+.card-columns {
+    column-gap: 0px; //0.25rem;
+}
+.card-img {
+    border-radius: 0;
+}

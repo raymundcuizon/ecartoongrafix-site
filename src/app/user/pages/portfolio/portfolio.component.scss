@@ -3,7 +3,7 @@
 // zoom effect start HERE
 /* [1] The container */
 .portfolio-img{
-  height: 100%;
+  height: ((848 - 144)/2)+px;
   width: 100%;
 }
 .img-overlay-text, .img-overlay-text-blur{
@@ -23,7 +23,7 @@
 .img-hover-zoom:hover .overlay-text{
   padding-top: 10px;
   padding-bottom: 10px;
-  background: rgba(255, 0, 0, 0.85); //change opacity 0.5 adjust it solid = 1
+  background: rgba(255, 0, 0, 0.55); //change opacity 0.5 adjust it solid = 1
   transition: all 0.5s ease-in-out;
 }
 .img-hover-zoom:hover .img-overlay-text-blur{
@@ -70,7 +70,7 @@
   transform: scale(1.2);
 }
 
-
+//BANNER STARTS HERE
 $mouse-width: 2.5rem;
 .hero {
 	position: relative;

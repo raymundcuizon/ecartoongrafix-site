@@ -28,7 +28,6 @@ export class PortfolioComponent implements OnInit {
     ///////////////////////////////////////////////
 
     this.portfolioService.getList();
-    console.log(this.portfolioService.portfolioDataList);
   }
 
   loadMore() {
@@ -42,7 +41,7 @@ export class PortfolioComponent implements OnInit {
   }
   smoothScroll(){
     $('body,html').animate({
-			scrollTop: 848 - 50
+			scrollTop: 848 - 144
 		}, 750);
   }
   redirectPortfolioitems(id){

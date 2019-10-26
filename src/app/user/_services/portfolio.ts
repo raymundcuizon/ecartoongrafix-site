@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { APP_CONFIG, AppConfig } from '../../app-config.module';
-import { PortfolioDatalist, PortfolioPageSetting, Pagination } from '../data/schema';
+import { PortfolioDatalist, PortfolioPageSetting, Pagination, PortfolioDatalistArtwork, PortfolioPageSettingArtwork, PaginationArtwork } from '../data/schema';
 import * as $ from 'jquery';
 
 
@@ -17,11 +17,18 @@ export class PortfolioService {
     };
     pagination: Pagination;
 
+    portfolioDataListArtwork: PortfolioDatalistArtwork[];
+    portfolioPageSettingArtwork: PortfolioPageSettingArtwork = {
+        page: 1,
+        paginate: 25
+    };
+    paginationArtwork: PaginationArtwork;
+
     constructor(private http: HttpClient, @Inject(APP_CONFIG) private config: AppConfig
     ) {
 
     }
-    
+
     getList() {
 
         this.http.get(`${this.config.apiUrl}/public/portfolio?${$.param(this.portfolioPageSetting)}`)
@@ -29,11 +36,28 @@ export class PortfolioService {
                 const d:any = res;
                 if(this.portfolioPageSetting.page > 1){
                     this.portfolioDataList = this.portfolioDataList.concat(d.data_list as PortfolioDatalist[])
+                    // console.log(this.portfolioDataList);
                 } else {
                     this.portfolioDataList = d.data_list as PortfolioDatalist[];
+                    // console.log(this.portfolioDataList);
                 }
 
                 this.pagination = d.pagination;
+            })
+    }
+    getArtworkList(id: any) {
+        this.http.get(`${this.config.apiUrl}/public/portfolio/artwork/${id}?${$.param(this.portfolioPageSettingArtwork)}`)
+            .toPromise().then(res => {
+                const d:any = res;
+                if(this.portfolioPageSettingArtwork.page > 1){
+                    this.portfolioDataListArtwork = this.portfolioDataListArtwork.concat(d.data_list as PortfolioDatalistArtwork[])
+                    console.log(this.portfolioDataListArtwork);
+                } else {
+                    this.portfolioDataListArtwork = d.data_list as PortfolioDatalistArtwork[];
+                    console.log(this.portfolioDataListArtwork);
+                }
+
+                this.paginationArtwork = d.pagination;
             })
     }
 
@@ -42,7 +66,7 @@ export class PortfolioService {
     }
 
     create(data: any, files: Set<File>) {
-        
+
         const formData: FormData = new FormData();
         formData.append(`name`, data.name);
         formData.append(`description`, data.description);
