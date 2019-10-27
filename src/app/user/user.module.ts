@@ -15,6 +15,7 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 // RECOMMENDED
 import { AccordionModule } from 'ngx-bootstrap/accordion';
 import { NgBootstrapFormValidationModule } from 'ng-bootstrap-form-validation';
+import { PopoverModule } from 'ngx-bootstrap/popover';
 
 
 @NgModule({
@@ -32,6 +33,7 @@ import { NgBootstrapFormValidationModule } from 'ng-bootstrap-form-validation';
     BsDropdownModule.forRoot(),
     AccordionModule.forRoot(),
     NgBootstrapFormValidationModule.forRoot(),
+    PopoverModule.forRoot(),
     MaterialsModule
   ]
 })

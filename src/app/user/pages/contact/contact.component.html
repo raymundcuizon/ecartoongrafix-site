@@ -1,17 +1,58 @@
 <div class="container border-bottom pt-5 mt-5">
 <!-- Default form register -->
-<form class="text-center border border-light p-5" action="#!">
+<form class="text-center border border-light p-5" [formGroup]="formGroup" (validSubmit)="onSubmit()">
 
-    <p class="h4 mb-4">Sign up</p>
+    <p class="h4 mb-4">REQUEST A QUOTE</p>
+    <p>Please fill out as much information as you can below or email me here if you would rather not use this form.</p>
+    <div class="form-row mb-4">
+        <div class="col">
+            <input type="text" 
+                id="contact_name" 
+                class="form-control" 
+                placeholder="Contact name *"
+                formControlName="contact_name">
+        </div>
+        <div class="col">
+            <input type="text" 
+                id="company_name" 
+                class="form-control" 
+                placeholder="Company name *"
+                formControlName="company_name"
+                >
+        </div>
+        <div class="col">
+            <input type="text" 
+                id="phone_number" 
+                class="form-control" 
+                placeholder="Phone number *"
+                formControlName="phone_number"
+                >
+        </div>
+    </div>
 
     <div class="form-row mb-4">
         <div class="col">
-            <!-- First name -->
-            <input type="text" id="defaultRegisterFormFirstName" class="form-control" placeholder="First name">
+            <input type="text" 
+                id="website" 
+                class="form-control" 
+                placeholder="Website *"
+                formControlName="website">
         </div>
         <div class="col">
-            <!-- Last name -->
-            <input type="text" id="defaultRegisterFormLastName" class="form-control" placeholder="Last name">
+            <input type="text" 
+                id="email_address" 
+                class="form-control" 
+                placeholder="Email address *"
+                formControlName="email_address"
+                >
+        </div>
+        <div class="col">
+            <input type="text" 
+                id="project_name" 
+                class="form-control" 
+                placeholder="Project name *"
+                formControlName="project_name"
+                >
         </div>
     </div>
 
@@ -46,7 +87,16 @@
     <a href="#" class="mx-2" role="button"><i class="fab fa-twitter light-blue-text"></i></a>
     <a href="#" class="mx-2" role="button"><i class="fab fa-linkedin-in light-blue-text"></i></a>
     <a href="#" class="mx-2" role="button"><i class="fab fa-github light-blue-text"></i></a>
+    <div class="col-md-2">
+        <button type="button" class="btn btn-info"
+                popover="I will hide on blur"
+                triggers="mouseenter:mouseleave">
+          Hover over me!
+        </button>
 
+        <i class="fas fa-question light-blue-text" popover="I will hide on blur"
+        triggers="mouseenter:mouseleave"></i>
+      </div>
     <hr>
 
     <!-- Terms of service -->
