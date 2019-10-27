@@ -7,33 +7,34 @@
         #group
         (click)="doSomethingOnOpen(data)">
         <span accordion-heading class="sample-class">
-            <!-- <i [ngClass]="{'fa-chevron-down faq-active': group?.isOpen, 'fa-chevron-right': !group?.isOpen}"
-            class="fa align-bottom" aria-hidden="true"></i>
-            <span [ngClass]="{'faq-active' : group?.isOpen }"> -->
-              <!-- {{ data.name }} -->
-            <!-- </span> -->
+          <div class="overlay">
+            <div class="process-details">
+                <h4>{{ data.name }}</h4>
+                <p>{{ data.description }}</p>
+                <i [ngClass]="{'fa-chevron-up faq-active': group?.isOpen, 'fa-chevron-down': !group?.isOpen}"
+                 class="fa align-bottom" aria-hidden="true"></i>
+            </div>
+          </div>
         </span>
           <ul>
-            <li *ngFor="let data of steps; let i = index">
+            <li *ngFor="let d of data.steps; let indx = index">
               <h3 class="text-center"> 
-                  {{ data.title }}
+                  {{ d.title }}
               </h3> 
               <div class="container">
                   <p class="text-center">
-                      {{ data.description }}
+                      {{ d.description }}
                     </p>
               </div>
 
               <div class="text-center">
-                <img src="{{ data.img_url }}" class="rounded img-fluid" alt="Cinque Terre">
+                <img src="{{ d.img_url }}" class="rounded img-fluid" alt="Cinque Terre">
                 <br>
-                <img *ngIf="steps.length != (i+1)" src="../../../../assets/images/arrow_down.gif" alt="">
-                <!-- {{  }} -->
+                <img *ngIf="data.steps.length != (indx+1)" src="../../../../assets/images/arrow_down.gif" alt="">
               </div>
 
             </li>
           </ul>
-          <!-- <div [innerHtml]="faq.answer" ></div> -->
         </accordion-group>
   </accordion>
 

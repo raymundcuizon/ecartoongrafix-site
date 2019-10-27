@@ -1,5 +1,14 @@
 // @import 'variables';
 @import '../node_modules/bootstrap/scss/bootstrap';
+@font-face { 
+  font-family: ge-inspira-bold; 
+  src: url('./assets/fonts/GE-Inspira-Bold.ttf'); 
+}
+
+@font-face { 
+  font-family: ge-inspira-regular; 
+  src: url('./assets/fonts/GE-Inspira-Regular.ttf'); 
+}
 
 // /* You can add global styles to this file, and also import other style files */
 
@@ -82,12 +91,49 @@ $candy-app-theme: mat-light-theme($candy-app-primary, $candy-app-accent, $candy-
     background-repeat: no-repeat;
     padding: 90px 30px 72px;
     background-size: cover;
+    margin-bottom: 1px;
   }
 
-  // .panel-heading:hover {
-  //   // background-color: #eaeaea;
-  // }
   .panel-heading, .panel {
     border: unset;
   }
+
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: #495057;
+    overflow: hidden;
+    width: 100%;
+    height:0;
+    transition: .5s ease;
+    opacity: 0.9;
+    filter: alpha(opacity=90); /* For IE8 and earlier */
+  }
+
+  .panel-heading:hover .overlay {
+    top: 0;
+    height: 395px;
+  }
+
+  .process-details {
+    color: #f2f2f2;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: center;
+
+    h2 {
+      font-family: ge-inspira-bold;
+    }
+    i {
+      font-size: 25px;
+    }
+  }
+  
+  
 }

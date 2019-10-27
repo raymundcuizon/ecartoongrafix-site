@@ -14,6 +14,8 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 
 // RECOMMENDED
 import { AccordionModule } from 'ngx-bootstrap/accordion';
+import { NgBootstrapFormValidationModule } from 'ng-bootstrap-form-validation';
+
 
 @NgModule({
   declarations: [UserComponent, LandingPageComponent, ServicesComponent, ProcessComponent, StoreComponent, FaqComponent, AboutComponent, ContactComponent, PortfolioComponent, PortfolioItemsComponent],
@@ -29,7 +31,7 @@ import { AccordionModule } from 'ngx-bootstrap/accordion';
 
     BsDropdownModule.forRoot(),
     AccordionModule.forRoot(),
-
+    NgBootstrapFormValidationModule.forRoot(),
     MaterialsModule
   ]
 })

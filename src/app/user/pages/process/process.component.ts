@@ -21,20 +21,22 @@ export class ProcessComponent implements OnInit,  AfterContentInit {
     this.processService.getList().subscribe((res) => {
       const d: any = res;
       this.list = d.datalist as Process[];
+      console.log(this.list)
         this.list.forEach((val, index, array) => {
           let id = "#processPanel_"+index;
           let bgImg = val.img_url;
           $(document).ready(function() {
             $(id +" > div > .panel-heading").css('background-image', 'url('+bgImg+')');
+            // $(id +" > div > .panel-heading").css('border-bottom', 'solid 1px #f26052');
           });        
         });
     })
   }
   doSomethingOnOpen(data) {
-    this.processService.get(data.id).subscribe(res => {
-      const d: any = res;
-      this.steps = d.steps as Step[];
-    })
+    // this.processService.get(data.id).subscribe(res => {
+    //   const d: any = res;
+    //   this.steps = d.steps as Step[];
+    // })
   }
   ngAfterContentInit(): void {
 
