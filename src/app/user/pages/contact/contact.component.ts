@@ -58,10 +58,10 @@ export class ContactComponent implements OnInit {
         Validators.required,
         Validators.minLength(3)
       ]),
-      final_graphic: new FormControl( '' , [
-        Validators.required,
-        Validators.minLength(3)
-      ]),
+      final_graphic_print: new FormControl( '' , []),
+      final_graphic_web: new FormControl( '' , []),
+      final_graphic_apparel: new FormControl( '' , []),
+      final_graphic_other: new FormControl( '' , []),
       deadline: new FormControl( '' , [
         Validators.required,
         Validators.minLength(3)

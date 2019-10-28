@@ -20,6 +20,10 @@
                 formControlName="company_name"
                 >
         </div>
+        
+    </div>
+
+    <div class="form-row mb-4">
         <div class="col">
             <input type="text" 
                 id="phone_number" 
@@ -28,9 +32,7 @@
                 formControlName="phone_number"
                 >
         </div>
-    </div>
 
-    <div class="form-row mb-4">
         <div class="col">
             <input type="text" 
                 id="website" 
@@ -38,6 +40,10 @@
                 placeholder="Website *"
                 formControlName="website">
         </div>
+    </div>
+
+    <div class="form-row mb-4">
+        
         <div class="col">
             <input type="text" 
                 id="email_address" 
@@ -56,25 +62,128 @@
         </div>
     </div>
 
-    <!-- E-mail -->
-    <input type="email" id="defaultRegisterFormEmail" class="form-control mb-4" placeholder="E-mail">
+    <div class="form-row mb-4">
+        <div class="col text-left">
+            <ng-template #licenseTemplate>
+                *Copyright transfer is for full ownership of project such as characters, mascots, cartoon logos, branding and publications.
+                <br>
+                *Licensed art covers editorial illustrations, spot illustration for magazines, blog posts, flyers, invitations etc.
+                Note that licensed art will be made available to others for licensed use.
+            </ng-template>
 
-    <!-- Password -->
-    <input type="password" id="defaultRegisterFormPassword" class="form-control" placeholder="Password" aria-describedby="defaultRegisterFormPasswordHelpBlock">
-    <small id="defaultRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4">
-        At least 8 characters and 1 digit
-    </small>
+            <p [tooltip]="licenseTemplate">What license do you need?</p>    
+            
+            <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" class="custom-control-input" value="copyright_transfer" id="license1" formControlName="license" name="license">
+                <label class="custom-control-label" for="license1">Copyright Transfer</label>
+            </div>
+            
+            <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" class="custom-control-input" value="licensed_art" id="license2" formControlName="license" name="license">
+                <label class="custom-control-label" for="license2">Licensed Art</label>
+            </div>
+            
+        </div>
+        <div class="col text-left">
 
-    <!-- Phone number -->
-    <input type="text" id="defaultRegisterPhonePassword" class="form-control" placeholder="Phone number" aria-describedby="defaultRegisterFormPhoneHelpBlock">
-    <small id="defaultRegisterFormPhoneHelpBlock" class="form-text text-muted mb-4">
-        Optional - for two step authentication
-    </small>
+            <p>What is the scope of usage for the illustration?</p>
+            <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" class="custom-control-input" value="local" id="local" formControlName="illustration_usage" name="illustration_usage">
+                <label class="custom-control-label" for="local">Local</label>
+            </div>
+            
+            <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" class="custom-control-input" value="national" id="national" formControlName="illustration_usage" name="illustration_usage">
+                <label class="custom-control-label" for="national">National</label>
+            </div>
 
-    <!-- Newsletter -->
-    <div class="custom-control custom-checkbox">
-        <input type="checkbox" class="custom-control-input" id="defaultRegisterFormNewsletter">
-        <label class="custom-control-label" for="defaultRegisterFormNewsletter">Subscribe to our newsletter</label>
+            <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" class="custom-control-input" value="worldwide" id="worldwide" formControlName="illustration_usage" name="illustration_usage">
+                <label class="custom-control-label" for="worldwide">Worldwide</label>
+            </div>
+            
+            <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" class="custom-control-input" value="web_only" id="web_only" formControlName="illustration_usage" name="illustration_usage">
+                <label class="custom-control-label" for="web_only">Web only</label>
+            </div>
+            
+            <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" class="custom-control-input" value="other" id="other" formControlName="illustration_usage" name="illustration_usage">
+                <label class="custom-control-label" for="other">Other</label>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="form-row mb4">
+
+        <div class="col text-left">
+            <p>What type of client will be using this graphic?</p>
+            <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" class="custom-control-input" value="individual" id="individual" formControlName="client_type" name="client_type">
+                <label class="custom-control-label" for="individual">Individual</label>
+            </div>
+            <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" class="custom-control-input" value="small_company" id="small_company" formControlName="client_type" name="client_type">
+                <label class="custom-control-label" for="small_company">Small Company</label>
+            </div>
+            <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" class="custom-control-input" value="ML_corporation" id="ML_corporation" formControlName="client_type" name="client_type">
+                <label class="custom-control-label" for="ML_corporation">Medium-Large Corporation</label>
+            </div>
+        </div>
+
+        <div class="col text-left">
+            
+            <p>Where will the final graphic be used? (check all that apply)</p>
+            <div class="custom-control custom-checkbox custom-control-inline">
+                <input type="checkbox" class="custom-control-input" formControlName="final_graphic_print"  id="final_graphic_print" >
+                <label class="custom-control-label" for="final_graphic_print">Print</label>
+            </div>
+            
+            <div class="custom-control custom-checkbox custom-control-inline">
+                <input type="checkbox" class="custom-control-input" formControlName="final_graphic_web"  id="final_graphic_web">
+                <label class="custom-control-label" for="final_graphic_web">Web</label>
+            </div>
+            
+            <div class="custom-control custom-checkbox custom-control-inline">
+                <input type="checkbox" class="custom-control-input" formControlName="final_graphic_apparel"  id="final_graphic_apparel">
+                <label class="custom-control-label" for="final_graphic_apparel">Apparel</label>
+            </div>
+            
+            <div class="custom-control custom-checkbox custom-control-inline">
+                    <input type="checkbox" class="custom-control-input" formControlName="final_graphic_other"  id="final_graphic_other">
+                    <label class="custom-control-label" for="final_graphic_other">Other</label>
+                </div>
+        </div>
+    </div>
+   
+    <div class="form-row mb4">
+        <div class="col text-left">
+            <div class="form-group">
+                <ng-template #project>
+                    For childrens books , please include number of pages, full description and size
+                    <br>
+                    For characters/mascot/cartoon logos , please include a full description, eg., human, animal, creature or object, etc.
+                </ng-template>
+                <label for="exampleFormControlTextarea3" [tooltip]="project">What is the project?</label>
+                <textarea class="form-control" id="exampleFormControlTextarea3" rows="7"></textarea>
+            </div>
+
+        </div>
+
+        <div class="col text-left">
+            
+            <div class="form-group">
+                <ng-template #project>
+                    Please briefly describe the company, product or service that the illustration/character/cartoon will be used with.
+                </ng-template>
+            
+                <label for="exampleFormControlTextarea3" [tooltip]="project">Company/Product/Service Background?</label>
+                <textarea class="form-control" id="exampleFormControlTextarea3" rows="7"></textarea>
+            </div>
+
+        </div>
     </div>
 
     <!-- Sign up button -->
