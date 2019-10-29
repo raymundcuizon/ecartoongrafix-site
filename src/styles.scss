@@ -86,7 +86,7 @@ $candy-app-theme: mat-light-theme($candy-app-primary, $candy-app-accent, $candy-
 
   .panel-heading {
     background-color: #F2F2F2;
-    min-height: 395px;
+    min-height: 78vh;
     background-position: center top;
     background-repeat: no-repeat;
     padding: 90px 30px 72px;
@@ -114,10 +114,12 @@ $candy-app-theme: mat-light-theme($candy-app-primary, $candy-app-accent, $candy-
 
   .panel-heading:hover .overlay {
     top: 0;
-    height: 395px;
+    height: 78vh;
   }
 
   .process-details {
+    padding-top: 7%;
+    height: 100%;
     color: #f2f2f2;
     position: absolute;
     top: 50%;
@@ -131,9 +133,78 @@ $candy-app-theme: mat-light-theme($candy-app-primary, $candy-app-accent, $candy-
       font-family: ge-inspira-bold;
     }
     i {
-      font-size: 25px;
+      font-size: 33px;
+      bottom: 0;
+      position: absolute;
+      -moz-animation: bounce 3s infinite;
+      -webkit-animation: bounce 3s infinite;
+      animation: bounce 3s infinite;
+    }
+
+    @-moz-keyframes bounce {
+      0%, 20%, 50%, 80%, 100% {
+        -moz-transform: translateY(0);
+        transform: translateY(0);
+      }
+      40% {
+        -moz-transform: translateY(-30px);
+        transform: translateY(-30px);
+      }
+      60% {
+        -moz-transform: translateY(-15px);
+        transform: translateY(-15px);
+      }
+    }
+    @-webkit-keyframes bounce {
+      0%, 20%, 50%, 80%, 100% {
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+      }
+      40% {
+        -webkit-transform: translateY(-30px);
+        transform: translateY(-30px);
+      }
+      60% {
+        -webkit-transform: translateY(-15px);
+        transform: translateY(-15px);
+      }
+    }
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% {
+        -moz-transform: translateY(0);
+        -ms-transform: translateY(0);
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+      }
+      40% {
+        -moz-transform: translateY(-30px);
+        -ms-transform: translateY(-30px);
+        -webkit-transform: translateY(-30px);
+        transform: translateY(-30px);
+      }
+      60% {
+        -moz-transform: translateY(-15px);
+        -ms-transform: translateY(-15px);
+        -webkit-transform: translateY(-15px);
+        transform: translateY(-15px);
+      }
+    }
+
+    i:hover {
+      color: #F26052;
     }
   }
   
+  
+}
+
+
+.inquiry-form{
+
+  .form-row {
+      input, textarea {
+          border-radius: unset!important;
+      }
+  }
   
 }
