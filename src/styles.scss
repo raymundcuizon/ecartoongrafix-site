@@ -195,15 +195,18 @@ $candy-app-theme: mat-light-theme($candy-app-primary, $candy-app-accent, $candy-
     }
   }
   
-  
 }
 
 
 .inquiry-form{
 
   .form-row {
-      input, textarea {
+      input, textarea, button {
           border-radius: unset!important;
+      }
+
+      .fa-question {
+        color: #F26052;
       }
   }
   
