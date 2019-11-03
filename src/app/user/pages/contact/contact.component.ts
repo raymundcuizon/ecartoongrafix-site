@@ -16,16 +16,19 @@ export class ContactComponent implements OnInit {
   strUrl: any[] = [];
   public files: Set<File> = new Set();
   submitted = false;
-
+  showFlash = false;
 
   formGroup: FormGroup;
   isSaving: boolean;
   hasFile: boolean;
 
+  // others flag
+  usageOtherFlg = false; 
+  finalGraphicOtherFlg = false;
 
   constructor(private inquiryService: InquiryService
   ) { }
-
+    // 4wvu65
   ngOnInit() {
     this.createForm();
   }
@@ -63,13 +66,15 @@ export class ContactComponent implements OnInit {
         Validators.required,
         Validators.minLength(3)
       ]),
+      illustration_usage_other: new FormControl('', []),
       client_type: new FormControl('', [
         Validators.required
       ]),
-      final_graphic_print: new FormControl('', []),
-      final_graphic_web: new FormControl('', []),
-      final_graphic_apparel: new FormControl('', []),
-      final_graphic_other: new FormControl('', []),
+      final_graphic_print: new FormControl(false, []),
+      final_graphic_web: new FormControl(false, []),
+      final_graphic_apparel: new FormControl(false, []),
+      final_graphic_other: new FormControl(false, []),
+      final_graphic_other_details: new FormControl(''),
       // deadline: new FormControl( '' , [
       //   Validators.required,
       // ]),
@@ -127,6 +132,11 @@ export class ContactComponent implements OnInit {
       this.createForm();
       this.strUrl = [];
       this.files.clear();
+      this.showFlash = true;
+        setTimeout(() => {
+          this.showFlash = false;
+        }, 5000);
+
     }, error => {
       this.submitted = false;
     })
@@ -156,4 +166,14 @@ export class ContactComponent implements OnInit {
     this.strUrl.splice(i, 1);
   }
 
+  usageChange($event) {
+    // console.log($event.value);
+    this.usageOtherFlg = this.f.illustration_usage.value === 'other' ? true : false  
+    // console.log(this.f.illustration_usage.value)
+  }
+
+  finalGraphicOther(){
+    this.finalGraphicOtherFlg = !this.f.final_graphic_other.value;
+  }
 }
+// /api/auth/login

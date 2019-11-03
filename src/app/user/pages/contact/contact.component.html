@@ -1,7 +1,6 @@
-<div class="container border-bottom pt-5 mt-5 mb-5">
+<div class="container pt-5 mt-5 mb-5">
 <!-- Default form register -->
     <form class="inquiry-form text-center border border-light p-5" [formGroup]="formGroup" (validSubmit)="onSubmit()">
-
         <p class="h4 mb-4">REQUEST A QUOTE</p>
         <p>Please fill out as much information as you can below or email me here if you would rather not use this form.</p>
         <div class="form-row mb-4">
@@ -89,29 +88,44 @@
 
                 <p>What is the scope of usage for the illustration</p>
                 <div class="custom-control custom-radio custom-control-inline">
-                    <input type="radio" class="custom-control-input" value="local" id="local" formControlName="illustration_usage" name="illustration_usage">
+                    <input type="radio" class="custom-control-input" value="local" id="local" 
+                        formControlName="illustration_usage" name="illustration_usage"
+                        (change)="usageChange($event)">
                     <label class="custom-control-label" for="local">Local</label>
                 </div>
                 
                 <div class="custom-control custom-radio custom-control-inline">
-                    <input type="radio" class="custom-control-input" value="national" id="national" formControlName="illustration_usage" name="illustration_usage">
+                    <input type="radio" class="custom-control-input" value="national" id="national" 
+                    formControlName="illustration_usage" name="illustration_usage"
+                    (change)="usageChange($event)">
                     <label class="custom-control-label" for="national">National</label>
                 </div>
 
                 <div class="custom-control custom-radio custom-control-inline">
-                    <input type="radio" class="custom-control-input" value="worldwide" id="worldwide" formControlName="illustration_usage" name="illustration_usage">
+                    <input type="radio" class="custom-control-input" value="worldwide" id="worldwide" 
+                    formControlName="illustration_usage" name="illustration_usage"
+                    (change)="usageChange($event)">
                     <label class="custom-control-label" for="worldwide">Worldwide</label>
                 </div>
                 
                 <div class="custom-control custom-radio custom-control-inline">
-                    <input type="radio" class="custom-control-input" value="web_only" id="web_only" formControlName="illustration_usage" name="illustration_usage">
+                    <input type="radio" class="custom-control-input" value="web_only" id="web_only" 
+                    formControlName="illustration_usage" name="illustration_usage"
+                    (change)="usageChange($event)">
                     <label class="custom-control-label" for="web_only">Web only</label>
                 </div>
                 
                 <div class="custom-control custom-radio custom-control-inline">
-                    <input type="radio" class="custom-control-input" value="other" id="other" formControlName="illustration_usage" name="illustration_usage">
+                    <input type="radio" class="custom-control-input" value="other" id="other" 
+                    formControlName="illustration_usage" name="illustration_usage"
+                    (change)="usageChange($event)">
                     <label class="custom-control-label" for="other">Other</label>
                 </div>
+                <input type="text" *ngIf="usageOtherFlg"
+                        id="project_name" 
+                        class="form-control" 
+                        formControlName="illustration_usage_other"
+                        placeholder="If Other, please specify">
             </div>
         </div>
 
@@ -152,9 +166,16 @@
                 </div>
                 
                 <div class="custom-control custom-checkbox custom-control-inline">
-                        <input type="checkbox" class="custom-control-input" formControlName="final_graphic_other"  id="final_graphic_other">
-                        <label class="custom-control-label" for="final_graphic_other">Other</label>
-                    </div>
+                    <input type="checkbox" class="custom-control-input"
+                    (click)="finalGraphicOther()"
+                    formControlName="final_graphic_other"  id="final_graphic_other">
+                    <label class="custom-control-label"  for="final_graphic_other">Other</label>
+                </div>
+                <input type="text" *ngIf="finalGraphicOtherFlg"
+                        id="project_name" 
+                        class="form-control" 
+                        formControlName="final_graphic_other_details"
+                        placeholder="If Other, please specify">
             </div>
         </div>
         
@@ -384,9 +405,14 @@
 
         </div>
 
-        <!-- Sign up button -->
-        <button class="btn btn-info my-4 btn-block" type="submit">Sign in</button>
+        <button class="btn submit-button-inquiry my-4 btn-block" [disabled]="submitted" type="submit">
+            <div *ngIf="submitted" class="lds-ripple text-center"><div></div><div></div></div>
+            {{ (submitted === false)? "Submit" : "" }}
+        </button>
+        
+        <div *ngIf="showFlash" class="alert alert-success" role="alert" style="border-radius: unset;">
+            Thank you for getting in touch!
+        </div>
 
     </form>
-<!-- Default form register -->
 </div>

@@ -1,3 +1,14 @@
+@font-face { 
+    font-family: ge-inspira-bold; 
+    src: url('../../../../assets/fonts/GE-Inspira-Bold.ttf'); 
+  }
+  
+  @font-face { 
+    font-family: ge-inspira-regular; 
+    src: url('../../../../assets/fonts/GE-Inspira-Regular.ttf'); 
+  }
+  
+
 .optional-message {
     background-color: #FDB913;
     color: #000;
@@ -10,6 +21,10 @@
         input {
             border-radius: unset!important;
         }
+    }
+
+    .h4 {
+        font-family: ge-inspira-bold;
     }
     
 }
@@ -39,4 +54,12 @@
             margin-top: 4px;
         }
     }
+}
+
+.submit-button-inquiry {
+    background-color: #f26052;
+    border: unset;
+    border-radius: unset;
+    height: 70px;
+    color: white;
 }
