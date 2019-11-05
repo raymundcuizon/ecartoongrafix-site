@@ -201,7 +201,7 @@ $candy-app-theme: mat-light-theme($candy-app-primary, $candy-app-accent, $candy-
 .inquiry-form{
 
   .form-row {
-      input, textarea, button {
+      input, textarea, button, select {
           border-radius: unset!important;
       }
 

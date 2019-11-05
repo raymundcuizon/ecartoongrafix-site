@@ -4,14 +4,14 @@
         <p class="h4 mb-4">REQUEST A QUOTE</p>
         <p>Please fill out as much information as you can below or email me here if you would rather not use this form.</p>
         <div class="form-row mb-4">
-            <div class="col">
+            <div class="form-group col-md-6">
                 <input type="text" 
                     id="contact_name" 
                     class="form-control" 
                     placeholder="Contact name *"
                     formControlName="contact_name">
             </div>
-            <div class="col">
+            <div class="form-group col-md-6">
                 <input type="text" 
                     id="company_name" 
                     class="form-control" 
@@ -23,7 +23,7 @@
         </div>
 
         <div class="form-row mb-4">
-            <div class="col">
+            <div class="form-group col-md-6">
                 <input type="text" 
                     id="phone_number" 
                     class="form-control" 
@@ -32,7 +32,7 @@
                     >
             </div>
 
-            <div class="col">
+            <div class="form-group col-md-6">
                 <input type="text" 
                     id="website" 
                     class="form-control" 
@@ -43,7 +43,7 @@
 
         <div class="form-row mb-4">
             
-            <div class="col">
+            <div class="form-group col-md-6">
                 <input type="text" 
                     id="email_address" 
                     class="form-control" 
@@ -51,7 +51,7 @@
                     formControlName="email_address"
                     >
             </div>
-            <div class="col">
+            <div class="form-group col-md-6">
                 <input type="text" 
                     id="project_name" 
                     class="form-control" 
@@ -62,7 +62,7 @@
         </div>
 
         <div class="form-row mb-4 mt-5">
-            <div class="col text-left">
+            <div class="form-group col-md-6 text-left">
                 <p>
                     <ng-template #licenseTpl>
                         *Copyright transfer is for full ownership of project such as characters, mascots, cartoon logos, branding and publications.
@@ -130,7 +130,7 @@
         </div>
 
         <div class="form-row mb-4 mt-5">
-            <div class="col text-left">
+            <div class="form-group col-md-6 text-left">
                 <p>What type of client will be using this graphic</p>
                 <div class="custom-control custom-radio custom-control-inline">
                     <input type="radio" class="custom-control-input" value="individual" id="individual" formControlName="client_type" name="client_type">
@@ -147,7 +147,7 @@
                     <label class="custom-control-label" for="ML_corporation">Medium-Large Corporation</label>
                 </div>
             </div>
-            <div class="col text-left">
+            <div class="form-group col-md-6 text-left">
                 
                 <p>Where will the final graphic be used? (check all that apply)</p>
                 <div class="custom-control custom-checkbox custom-control-inline">
@@ -179,97 +179,52 @@
             </div>
         </div>
         
-        <!-- <div class="form-row mb-4 mt-5">
-            <div class="col text-left">
-                <p>Do you have a deadline?</p>
-                <div class="custom-control custom-radio custom-control-iline">
-                    <input type="radio" 
-                        class="custom-control-input" 
-                        value="1_week" 
-                        id="1_week"
-                        formControlName="deadline" name="deadline">
-                    <label class="custom-control-label" for="1_week">1 Week</label>
-                </div>
+        <div class="form-row mb-4 mt-5">
+            <div class="form-group col-md-6 text-left">
+                <label for="deadline">Do you have a deadline?</label>
+                <select class="form-control" formControlName="deadline"  id="deadline" (change)="changingDeadline($event)">
+                    <option value="1_week">1 week</option>
+                    <option value="2_3_week">2-3 weeks</option>
+                    <option value="1_month">1 month</option>
+                    <option value="no_rush">No rush</option>
+                    <option value="yesterday">Yesterday</option>
+                    <option value="other">Other</option>
+                </select>
+                <br>
+                <input type="text" *ngIf="deadlineOtherFlg" id="budget"  formControlName="deadline_other" class="form-control">
 
-                <div class="custom-control custom-radio custom-control-iline">
-                    <input type="radio" 
-                        class="custom-control-input" 
-                        value="1_2_week" 
-                        id="1_2_week"
-                        formControlName="deadline" name="deadline">
-                    <label class="custom-control-label" for="1_2_week">1-2 Week</label>
-                </div>
-
-                <div class="custom-control custom-radio custom-control-iline">
-                    <input type="radio" 
-                        class="custom-control-input" 
-                        value="1_month" 
-                        id="1_month"
-                        formControlName="deadline" name="deadline">
-                    <label class="custom-control-label" for="1_month">1 Month</label>
-                </div>
-
-                <div class="custom-control custom-radio custom-control-iline">
-                    <input type="radio" 
-                        class="custom-control-input" 
-                        value="no_rush" 
-                        id="no_rush"
-                        formControlName="deadline" name="deadline">
-                    <label class="custom-control-label" for="no_rush">No rush</label>
-                </div>
-
-                <div class="custom-control custom-radio custom-control-iline">
-                    <input type="radio" 
-                        class="custom-control-input" 
-                        value="yesterday" 
-                        id="yesterday"
-                        formControlName="deadline" name="deadline">
-                    <label class="custom-control-label" for="yesterday">Yesterday</label>
-                </div>
-                
-                <div class="custom-control custom-radio custom-control-iline">
-                    <input type="radio" 
-                        class="custom-control-input" 
-                        value="other" 
-                        id="dl_other"
-                        formControlName="deadline" name="deadline">
-                    <label class="custom-control-label" for="dl_other">Other</label>
-                </div>
-                
             </div>
-        </div> -->
+            <div class="form-group col-md-6 text-left">
+                <label for="budget">Your budget for the project?</label>
+                <input type="number" id="budget" formControlName="budget" placeholder="$" class="form-control">
+            </div>
+        </div>
 
         <div class="form-row mb-4 mt-5">
-            <div class="col text-left">
-                <div class="form-group">
-                    <ng-template #projectTpl>
-                        For childrens books , please include number of pages, full description and size
-                        <br>
-                        For characters/mascot/cartoon logos , please include a full description, eg., human, animal, creature or object, etc.
-                    </ng-template>
-                    <label for="projectTpl" [tooltip]="project">
-                        What is the project
-                        <i class="fas fa-question " [tooltip]="projectTpl"></i>
-                    </label>
-                    <textarea class="form-control" id="projectTpl" rows="7" formControlName="project_about"></textarea>
-                </div>
+            <div class="form-group col-md-6 text-left">
+                <ng-template #projectTpl>
+                    For childrens books , please include number of pages, full description and size
+                    <br>
+                    For characters/mascot/cartoon logos , please include a full description, eg., human, animal, creature or object, etc.
+                </ng-template>
+                <label for="projectTpl" [tooltip]="project">
+                    What is the project
+                    <i class="fas fa-question " [tooltip]="projectTpl"></i>
+                </label>
+                <textarea class="form-control" id="projectTpl" rows="7" formControlName="project_about"></textarea>
 
             </div>
 
-            <div class="col text-left">
-                
-                <div class="form-group">
-                    <ng-template #cps_backgroundTpl>
-                        Please briefly describe the company, product or service that the illustration/character/cartoon will be used with.
-                    </ng-template>
-                
-                    <label for="cps_backgroundTpl">
-                        Company/Product/Service Background
-                        <i class="fas fa-question " [tooltip]="cps_backgroundTpl"></i>
-                    </label>
-                    <textarea class="form-control" id="cps_backgroundTpl" rows="7" formControlName="cps_background"></textarea>
-                </div>
-
+            <div class="form-group col-md-6 text-left">
+                <ng-template #cps_backgroundTpl>
+                    Please briefly describe the company, product or service that the illustration/character/cartoon will be used with.
+                </ng-template>
+            
+                <label for="cps_backgroundTpl">
+                    Company/Product/Service Background
+                    <i class="fas fa-question " [tooltip]="cps_backgroundTpl"></i>
+                </label>
+                <textarea class="form-control" id="cps_backgroundTpl" rows="7" formControlName="cps_background"></textarea>
             </div>
         </div>
         <div class="optional-message mb-5">
@@ -281,126 +236,115 @@
         </div>
         
         <div class="form-row mb-4">
-            <div class="col text-left">        
-                <div class="form-group">            
-                    <ng-template #usageTpl>
-                        If you have other specific details not covered above, please type more info below.
-                    </ng-template>
-                    <label for="usageTpl">
-                        Usage
-                        <i class="fas fa-question " [tooltip]="usageTpl"></i>
-                    </label>
-                    <textarea class="form-control" id="usageTpl" rows="7" formControlName="project_usage"></textarea>
-                </div>
+            <div class="form-group col-md-6 text-left">        
+                <ng-template #usageTpl>
+                    If you have other specific details not covered above, please type more info below.
+                </ng-template>
+                <label for="usageTpl">
+                    Usage
+                    <i class="fas fa-question " [tooltip]="usageTpl"></i>
+                </label>
+                <textarea class="form-control" id="usageTpl" rows="7" formControlName="project_usage"></textarea>
             </div>
 
-            <div class="col text-left">        
-                <div class="form-group">            
-                    <ng-template #targe_audienceTpl>
-                        Who is your target market? What are their specific age groups? gender? nationality? personality? etc.
-                        please type more info below.
-                    </ng-template>
-                    <label for="targe_audienceTpl">
-                        Target Audience
-                        <i class="fas fa-question " [tooltip]="targe_audienceTpl"></i>
-                    </label>
-                    <textarea class="form-control" id="targe_audienceTpl" rows="7" formControlName="target_audience"></textarea>
-                </div>
+            <div class="form-group col-md-6 text-left">        
+                <ng-template #targe_audienceTpl>
+                    Who is your target market? What are their specific age groups? gender? nationality? personality? etc.
+                    please type more info below.
+                </ng-template>
+                <label for="targe_audienceTpl">
+                    Target Audience
+                    <i class="fas fa-question " [tooltip]="targe_audienceTpl"></i>
+                </label>
+                <textarea class="form-control" id="targe_audienceTpl" rows="7" formControlName="target_audience"></textarea>
             </div>
         </div>
 
         <div class="form-row mb-4">
-                <div class="col text-left">        
-                    <div class="form-group">
-                        <ng-template #colorTpl>
-                                Would it be full colored? limited colors? grey scale or black and white? please type info below.
-                        </ng-template>         
-                        <label for="colorTpl">
-                            Colors
-                            <i class="fas fa-question " [tooltip]="colorTpl"></i>
-                        </label>
-                        <textarea class="form-control" id="colorTpl" rows="7" formControlName="colors"></textarea>
-                    </div>
-                </div>
-        
-                <div class="col text-left">        
-                    <div class="form-group">
-                        <ng-template #refPhotosTpl>
-                            For specific look or style please type links from our portfolio or links from other websites .
-                            For caricature reference upload photos here.
-                        </ng-template>          
-                        <label for="refPhotosTpl">
-                            Reference & Photos
-                            <i class="fas fa-question" [tooltip]="refPhotosTpl"></i>
-                        </label>
-                        <button type="button" color="primary" class="add-files-btn form-control"
-                            (click)="addFiles()">
-                            <i class="fas fa-cloud-upload-alt"></i> Choose a files..
-                        </button>
-                        <input type="file" #file style="display: none" (change)="onFilesAdded()" multiple/>
-                        <div class="form-row mb-4 ref-potos">
-                            <div class="col"  *ngFor="let file of strUrl; let i = index" [ngStyle]="{'background-image': 'url('+ file +')'}">
-                                    <i class="fas fa-times-circle" (click)="removeaddesImg(i)"></i>
-                            </div>
+            <div class="form-group col-md-6 text-left">
+                <ng-template #colorTpl>
+                        Would it be full colored? limited colors? grey scale or black and white? please type info below.
+                </ng-template>         
+                <label for="colorTpl">
+                    Colors
+                    <i class="fas fa-question " [tooltip]="colorTpl"></i>
+                </label>
+                <textarea class="form-control" id="colorTpl" rows="7" formControlName="colors"></textarea>
+            </div>
+    
+            <div class="col-md-6 text-left">        
+                <div class="col form-group ">
+                    <ng-template #refPhotosTpl>
+                        For specific look or style please type links from our portfolio or links from other websites .
+                        For caricature reference upload photos here.
+                        <br>
+                        You can only upload a maximum of 3 files with 2mb each
+                    </ng-template>          
+                    <label for="refPhotosTpl">
+                        Reference & Photos
+                        <i class="fas fa-question" [tooltip]="refPhotosTpl"></i>
+                    </label>
+                    <button type="button" color="primary" class="add-files-btn form-control"
+                        (click)="addFiles()">
+                        <i class="fas fa-cloud-upload-alt"></i> Choose a files..
+                    </button>
+                    <input type="file" #file style="display: none" (change)="onFilesAdded()" multiple/>
+                    <div class="form-row mb-4 ref-potos">
+                        <div class="col"  *ngFor="let file of strUrl; let i = index" [ngStyle]="{'background-image': 'url('+ file +')'}">
+                                <i class="fas fa-times-circle" (click)="removeaddesImg(i)"></i>
                         </div>
                     </div>
                 </div>
+            </div>
+
         </div>
 
         <div class="form-row mb-4">
-            <div class="col text-left">        
-                <div class="form-group">        
-                    <ng-template #lookFeelTpl>
-                        What attitude, emotion or impression would you like to express? 
-                    </ng-template>    
-                    <label for="lookFeelTpl">
-                        Look & Feel
-                        <i class="fas fa-question " [tooltip]="lookFeelTpl"></i>
-                    </label>
-                    <textarea class="form-control" id="lookFeelTpl" rows="7" formControlName="look_feel"></textarea>
-                </div>
+            <div class="form-group col-md-6 text-left">        
+                <ng-template #lookFeelTpl>
+                    What attitude, emotion or impression would you like to express? 
+                </ng-template>    
+                <label for="lookFeelTpl">
+                    Look & Feel
+                    <i class="fas fa-question " [tooltip]="lookFeelTpl"></i>
+                </label>
+                <textarea class="form-control" id="lookFeelTpl" rows="7" formControlName="look_feel"></textarea>
             </div>
-            <div class="col text-left">        
-                    <div class="form-group">
-                        <ng-template #PositionPoseTpl>
-                            For characters, Is there a specific pose, camera shot or positioning would you like?
-                        </ng-template>       
-                        <label for="PositionPoseTpl">
-                            Position and Pose
-                            <i class="fas fa-question " [tooltip]="PositionPoseTpl"></i>
-                        </label>
-                        <textarea class="form-control" id="PositionPoseTpl" rows="7" formControlName="positioning"></textarea>
-                    </div>
-                </div>
+            <div class="form-group col-md-6 text-left">        
+                <ng-template #PositionPoseTpl>
+                    For characters, Is there a specific pose, camera shot or positioning would you like?
+                </ng-template>       
+                <label for="PositionPoseTpl">
+                    Position and Pose
+                    <i class="fas fa-question " [tooltip]="PositionPoseTpl"></i>
+                </label>
+                <textarea class="form-control" id="PositionPoseTpl" rows="7" formControlName="positioning"></textarea>
+            </div>
 
         </div>
 
-        <div class="form-row mb-sss4">
+        <div class="form-row mb-4">
             
-            <div class="col text-left">        
-                <div class="form-group">            
-                    <ng-template #FontsLetteringTpl>
-                        Do you want a specific fonts or typeface? please list below.
-                    </ng-template>
-                    <label for="FontsLetteringTpl">
-                        Fonts & Lettering
-                        <i class="fas fa-question " [tooltip]="FontsLetteringTpl"></i>
-                    </label>
-                    <textarea class="form-control" id="FontsLetteringTpl" rows="7" formControlName="font_lettering"></textarea>
-                </div>
+            <div class="form-group col-md-6 text-left">        
+                <ng-template #FontsLetteringTpl>
+                    Do you want a specific fonts or typeface? please list below.
+                </ng-template>
+                <label for="FontsLetteringTpl">
+                    Fonts & Lettering
+                    <i class="fas fa-question " [tooltip]="FontsLetteringTpl"></i>
+                </label>
+                <textarea class="form-control" id="FontsLetteringTpl" rows="7" formControlName="font_lettering"></textarea>
             </div>
 
-            <div class="col text-left">        
-                <div class="form-group">
-                    <ng-template #EtcTpl>
-                        Please list any additional or specific details like costume, props or background
-                    </ng-template>
-                    <label for="EtcTpl">
-                        Etc
-                        <i class="fas fa-question " [tooltip]="EtcTpl"></i>
-                    </label>
-                    <textarea class="form-control" id="EtcTpl" rows="7" formControlName="etc"></textarea>
-                </div>
+            <div class="form-group col-md-6 text-left">        
+                <ng-template #EtcTpl>
+                    Please list any additional or specific details like costume, props or background
+                </ng-template>
+                <label for="EtcTpl">
+                    Etc
+                    <i class="fas fa-question " [tooltip]="EtcTpl"></i>
+                </label>
+                <textarea class="form-control" id="EtcTpl" rows="7" formControlName="etc"></textarea>
             </div>
 
         </div>

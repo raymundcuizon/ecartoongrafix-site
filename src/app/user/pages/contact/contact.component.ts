@@ -23,12 +23,13 @@ export class ContactComponent implements OnInit {
   hasFile: boolean;
 
   // others flag
-  usageOtherFlg = false; 
-  finalGraphicOtherFlg = false;
+  usageOtherFlg:boolean; 
+  finalGraphicOtherFlg:boolean;
+  deadlineOtherFlg:boolean;
 
   constructor(private inquiryService: InquiryService
   ) { }
-    // 4wvu65
+
   ngOnInit() {
     this.createForm();
   }
@@ -75,18 +76,17 @@ export class ContactComponent implements OnInit {
       final_graphic_apparel: new FormControl(false, []),
       final_graphic_other: new FormControl(false, []),
       final_graphic_other_details: new FormControl(''),
-      // deadline: new FormControl( '' , [
-      //   Validators.required,
-      // ]),
+      deadline: new FormControl( '' , [
+        Validators.required,
+      ]),
+      deadline_other: new FormControl(''),
       project_about: new FormControl('', [
         Validators.required,
       ]),
       cps_background: new FormControl('', [
         Validators.required,
       ]),
-      // budget: new FormControl( '' , [
-      //   Validators.required
-      // ]),
+      budget: new FormControl(''),
       project_usage: new FormControl(''),
       target_audience: new FormControl(''),
       colors: new FormControl(''),
@@ -111,11 +111,16 @@ export class ContactComponent implements OnInit {
       , project_name: this.f.project_usage.value
       , license: this.f.license.value
       , illustration_usage: this.f.illustration_usage.value
+      , illustration_usage_other: this.f.illustration_usage_other.value
       , client_type: this.f.client_type.value
       , final_graphic_print: this.f.final_graphic_print.value
       , final_graphic_web: this.f.final_graphic_web.value
       , final_graphic_apparel: this.f.final_graphic_apparel.value
       , final_graphic_other: this.f.final_graphic_other.value
+      , final_graphic_other_details: this.f.final_graphic_other_details.value
+      , deadline: this.f.deadline.value
+      , deadline_other: this.f.deadline_other.value
+      , budget: this.f.budget.value
       , project_about: this.f.project_about.value
       , cps_background: this.f.cps_background.value
       , project_usage: this.f.project_usage.value
@@ -133,6 +138,9 @@ export class ContactComponent implements OnInit {
       this.strUrl = [];
       this.files.clear();
       this.showFlash = true;
+      this.usageOtherFlg = false; 
+      this.finalGraphicOtherFlg = false;
+      this.deadlineOtherFlg = false;
         setTimeout(() => {
           this.showFlash = false;
         }, 5000);
@@ -147,16 +155,24 @@ export class ContactComponent implements OnInit {
   }
 
   onFilesAdded() {
+    if(this.file.nativeElement.files.length > 3) {
+      alert("You can only upload a maximum of 3 files");
+      return;
+    }
     const files: { [key: string]: File } = this.file.nativeElement.files;
+   
     for (let key in files) {
       if (!isNaN(parseInt(key))) {
-        this.files.add(files[key]);
-        let reader = new FileReader();
-        reader.onload = (event: any) => {
-          this.hasFile = true;
-          this.strUrl.push(event.target.result);
-        };
-        reader.readAsDataURL(files[key]);
+        const fsizeMB = Math.round(( files[key].size / 1024)); 
+        if(fsizeMB <= 2048) {
+          this.files.add(files[key]);
+          let reader = new FileReader();
+          reader.onload = (event: any) => {
+            this.hasFile = true;
+            this.strUrl.push(event.target.result);
+          };
+          reader.readAsDataURL(files[key]);          
+        }
       }
     }
   }
@@ -166,14 +182,15 @@ export class ContactComponent implements OnInit {
     this.strUrl.splice(i, 1);
   }
 
-  usageChange($event) {
-    // console.log($event.value);
-    this.usageOtherFlg = this.f.illustration_usage.value === 'other' ? true : false  
-    // console.log(this.f.illustration_usage.value)
+  usageChange() {
+    this.usageOtherFlg = this.f.illustration_usage.value === 'other' ? true : false 
   }
 
   finalGraphicOther(){
     this.finalGraphicOtherFlg = !this.f.final_graphic_other.value;
   }
+
+  changingDeadline() {
+    this.deadlineOtherFlg = (this.f.deadline.value === 'other') ? true : false;
+  }
 }
-// /api/auth/login

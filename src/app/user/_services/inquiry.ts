@@ -25,11 +25,16 @@ export class InquiryService {
         formData.append('project_name', data.project_name);
         formData.append('license', data.license);
         formData.append('illustration_usage', data.illustration_usage);
+        formData.append('illustration_usage_other', data.illustration_usage_other);
         formData.append('client_type', data.client_type);
         formData.append('final_graphic_print', data.final_graphic_print);
         formData.append('final_graphic_web', data.final_graphic_web);
         formData.append('final_graphic_apparel', data.final_graphic_apparel);
         formData.append('final_graphic_other', data.final_graphic_other);
+        formData.append('final_graphic_other_details', data.final_graphic_other_details)
+        formData.append('deadline', data.deadline);
+        formData.append('deadline_other', data.deadline_other);
+        formData.append('budget', data.budget);        
         formData.append('project_about', data.project_about);
         formData.append('cps_background', data.cps_background);
         formData.append('project_usage', data.project_usage);
