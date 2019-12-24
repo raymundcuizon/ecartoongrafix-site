@@ -10,15 +10,15 @@ import { Component, OnInit, HostListener, Inject } from '@angular/core';
 export class UserComponent implements OnInit {
   windowScrolled: boolean;
   windowScrolled_rev: boolean;
+  isNavOpen = false;
 
-  constructor() { } //@Inject(DOCUMENT) private document: Document
-  @HostListener("window:scroll", [])
+  constructor() { } // @Inject(DOCUMENT) private document: Document
+  @HostListener( 'window:scroll' , [])
   onWindowScroll() {
     if (window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop > 100) {
         this.windowScrolled = true;
         this.windowScrolled_rev = false;
-    }
-    else if (this.windowScrolled && window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop < 10) {
+    } else if (this.windowScrolled && window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop < 10) {
         this.windowScrolled = false;
         this.windowScrolled_rev = true;
     }
@@ -26,7 +26,11 @@ export class UserComponent implements OnInit {
 
 
   ngOnInit() {
-    this.onWindowScroll()
+    this.onWindowScroll();
+  }
+
+  toggleNav() {
+    this.isNavOpen = !this.isNavOpen;
   }
 
 }

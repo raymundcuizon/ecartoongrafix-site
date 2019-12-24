@@ -1,119 +1,131 @@
-<div class="d-flex flex-column h-100">
-  <!-- Begin page content -->
-  <main class="flex-shrink-0">
-    <header>
-      <!-- Fixed navbar -->
-      <nav id="navbar" class="navbar navbar-light fixed-top navbar-expand-lg text-white" [ngClass]="{'navScollClass': windowScrolled}">
-        <!-- <a class="navbar-brand" href="#"> -->
-        <span class="nav-brand">
-          <img src="/assets/images/ecartoon-graphix-design.png" class="d-inline-block align-top" alt="">
-          <span class="logoName">eCartoongrafix</span>
-        </span>
-        <!-- </a> -->
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-          <div class="navbar-nav ml-auto mynav-link">
-            <!-- <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a> -->
-            <a class="nav-item nav-link" [ngClass]="{'text-black': windowScrolled_rev}" routerLink="/">Home</a>
-            <a class="nav-item nav-link" [ngClass]="{'text-black': windowScrolled_rev}" routerLink="/portfolio">Portfolio</a>
-            <a class="nav-item nav-link" [ngClass]="{'text-black': windowScrolled_rev}" routerLink="/services">Services</a>
-            <a class="nav-item nav-link" [ngClass]="{'text-black': windowScrolled_rev}" routerLink="/process">Process</a>
-            <a class="nav-item nav-link" [ngClass]="{'text-black': windowScrolled_rev}" routerLink="/faq">Faq</a>
-            <a class="nav-item nav-link" [ngClass]="{'text-black': windowScrolled_rev}" routerLink="/about">About</a>
-            <a class="nav-item nav-link" [ngClass]="{'text-black': windowScrolled_rev}" routerLink="/contact">Contact</a>
+<div class="container-fluid p-0 m-0">
+  <div class="d-flex flex-column h-100">
+    <!-- Begin page content -->
+    <main class="flex-shrink-0">
+      <header class="mx-0 px-0">
+        <!-- Fixed navbar -->
+        <nav id="navbar" class="navbar navbar-light py-0 fixed-top navbar-expand-lg text-white" [ngClass]="{'navScollClass': windowScrolled , 'navMenuOpen': isNavOpen}">
+          <!-- <a class="navbar-brand" href="#"> -->
+          <div class="nav-brand">
+            <img src="/assets/images/ecartoon-graphix-design.png" class="d-inline-block align-top" alt="">
+            <span class="logoName">eCartoongrafix</span>
           </div>
-        </div>
-      </nav>
-      <!-- <nav class="navbar navbar-expand-md fixed-top navbar-dark bg-dark main-nav add-shadow">
-          <div class="container nav-container">
-              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse">
-                  <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse w-100">
-                  <ul class="nav navbar-nav w-100">
-                      <li class="nav-item active">
-                          <a class="nav-link" routerLink="/">Home</a>
-                      </li>
-                      <li class="nav-item">
-                          <a class="nav-link" routerLink="/portfolio">Portfolio</a>
-                      </li>
-                      <li class="nav-item">
-                          <a class="nav-link" routerLink="/services">Services</a>
-                      </li>
-                      <li class="nav-item">
-                          <a class="nav-link" routerLink="/process">Process</a>
-                      </li>
-                      <li class="nav-item">
-                          <a class="nav-link" routerLink="/store">Store</a>
-                      </li>
-                  </ul>
-              </div>
-              <div class="navbar-brand order-first order-md-0 mx-0" [ngStyle]="{ 'position': 'relative' }">
-                <img class="brandingLogo" src="/assets/images/ecartoon-graphix-design.png">
-              </div>
-              <div class="collapse navbar-collapse w-100">
-                  <ul class="nav navbar-nav ml-auto">
-                      <li class="nav-item">
-                          <a class="nav-link" routerLink="/faq">Faq</a>
-                      </li>
-                      <li class="nav-item">
-                          <a class="nav-link" routerLink="/about">About</a>
-                      </li>
-                      <li class="nav-item">
-                          <a class="nav-link" routerLink="/contact">Contact</a>
-                      </li>
-                  </ul>
-              </div>
-          </div>
-      </nav> -->
-    </header>
-    <div class="container-fluid px-0" id="main-div">
-      <router-outlet></router-outlet>
-    </div>
-  </main>
+          <!-- </a> -->
 
-  <footer class="footer">
-    <div class="container">
-      <div class="row">
-        <div class="col-12 col-md">
-          <img class="mb-2" src="/assets/images/ecartoon-graphix-design.png" alt="" width="24" height="24"> <span class="align-top pl-2">Ecartoongrafix</span>
-          <small class="d-block mb-3">© 2017-2019</small>
-        </div>
-        <div class="col-6 col-md">
-          <h5>Features</h5>
-          <ul class="list-unstyled text-small">
-            <li><a class="" href="#">Cool stuff</a></li>
-            <li><a class="" href="#">Random feature</a></li>
-            <li><a class="" href="#">Team feature</a></li>
-            <li><a class="" href="#">Stuff for developers</a></li>
-            <li><a class="" href="#">Another one</a></li>
-            <li><a class="" href="#">Last time</a></li>
-          </ul>
-        </div>
-        <div class="col-6 col-md">
-          <h5>Resources</h5>
-          <ul class="list-unstyled text-small">
-            <li><a class="" href="#">Resource</a></li>
-            <li><a class="" href="#">Resource name</a></li>
-            <li><a class="" href="#">Another resource</a></li>
-            <li><a class="" href="#">Final resource</a></li>
-          </ul>
-        </div>
-        <div class="col-6 col-md">
-          <h5>About</h5>
-          <ul class="list-unstyled text-small">
-            <li><a class="" href="#">Team</a></li>
-            <li><a class="" href="#">Locations</a></li>
-            <li><a class="" href="#">Privacy</a></li>
-            <li><a class="" href="#">Terms</a></li>
-          </ul>
+          <div class="menu-btn" [ngClass]="{'navOpen': isNavOpen}" (click)="toggleNav()">
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+          </div>
+
+
+          <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button> -->
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup" [ngClass]="{'menuOpen': isNavOpen, 'menuClose':!isNavOpen}">
+            <div class="navbar-nav ml-auto mynav-link">
+              <!-- <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a> -->
+              <a class="nav-item nav-link" [ngClass]="{'text-black': windowScrolled_rev}" (click)="toggleNav()" routerLink="/">Home</a>
+              <a class="nav-item nav-link" [ngClass]="{'text-black': windowScrolled_rev}" (click)="toggleNav()" routerLink="/portfolio">Portfolio</a>
+              <a class="nav-item nav-link" [ngClass]="{'text-black': windowScrolled_rev}" (click)="toggleNav()" routerLink="/services">Services</a>
+              <a class="nav-item nav-link" [ngClass]="{'text-black': windowScrolled_rev}" (click)="toggleNav()" routerLink="/process">Process</a>
+              <a class="nav-item nav-link" [ngClass]="{'text-black': windowScrolled_rev}" (click)="toggleNav()" routerLink="/faq">Faq</a>
+              <a class="nav-item nav-link" [ngClass]="{'text-black': windowScrolled_rev}" (click)="toggleNav()" routerLink="/about">About</a>
+              <a class="nav-item nav-link" [ngClass]="{'text-black': windowScrolled_rev}" (click)="toggleNav()" routerLink="/contact">Contact</a>
+            </div>
+          </div>
+        </nav>
+        <!-- <nav class="navbar navbar-expand-md fixed-top navbar-dark bg-dark main-nav add-shadow">
+            <div class="container nav-container">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse w-100">
+                    <ul class="nav navbar-nav w-100">
+                        <li class="nav-item active">
+                            <a class="nav-link" routerLink="/">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" routerLink="/portfolio">Portfolio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" routerLink="/services">Services</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" routerLink="/process">Process</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" routerLink="/store">Store</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="navbar-brand order-first order-md-0 mx-0" [ngStyle]="{ 'position': 'relative' }">
+                  <img class="brandingLogo" src="/assets/images/ecartoon-graphix-design.png">
+                </div>
+                <div class="collapse navbar-collapse w-100">
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" routerLink="/faq">Faq</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" routerLink="/about">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" routerLink="/contact">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav> -->
+      </header>
+      <div id="main-div">
+        <router-outlet></router-outlet>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 col-md">
+            <img class="mb-2" src="/assets/images/ecartoon-graphix-design.png" alt="" width="24" height="24"> <span class="align-top pl-2">Ecartoongrafix</span>
+            <small class="d-block mb-3">© 2017-2019</small>
+          </div>
+          <div class="col-6 col-md">
+            <h5>Features</h5>
+            <ul class="list-unstyled text-small">
+              <li><a class="" href="#">Cool stuff</a></li>
+              <li><a class="" href="#">Random feature</a></li>
+              <li><a class="" href="#">Team feature</a></li>
+              <li><a class="" href="#">Stuff for developers</a></li>
+              <li><a class="" href="#">Another one</a></li>
+              <li><a class="" href="#">Last time</a></li>
+            </ul>
+          </div>
+          <div class="col-6 col-md">
+            <h5>Resources</h5>
+            <ul class="list-unstyled text-small">
+              <li><a class="" href="#">Resource</a></li>
+              <li><a class="" href="#">Resource name</a></li>
+              <li><a class="" href="#">Another resource</a></li>
+              <li><a class="" href="#">Final resource</a></li>
+            </ul>
+          </div>
+          <div class="col-6 col-md">
+            <h5>About</h5>
+            <ul class="list-unstyled text-small">
+              <li><a class="" href="#">Team</a></li>
+              <li><a class="" href="#">Locations</a></li>
+              <li><a class="" href="#">Privacy</a></li>
+              <li><a class="" href="#">Terms</a></li>
+            </ul>
+          </div>
         </div>
       </div>
-    </div>
-  </footer>
+    </footer>
+  </div>
 </div>
+
 
 <!-- <main class="container-fluid">
   <div class="row">
